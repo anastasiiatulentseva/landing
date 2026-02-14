@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  /* Executive theme palette */
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --color-paper: #faf9f6;
+  --color-charcoal: #1f2937;
+  --color-gold: #b45309;
+}
+
+/* Prevent mobile half-screen layout / horizontal overflow */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+  min-width: 0;
+}
