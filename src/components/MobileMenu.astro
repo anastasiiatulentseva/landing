@@ -1,6 +1,6 @@
 ---
 interface Props {
-  links: { href: string; label: string; ariaLabel?: string }[];
+  links: { href: string; label: string; ariaLabel?: string; external?: boolean; download?: boolean | string }[];
 }
 const { links } = Astro.props;
 ---
@@ -11,7 +11,7 @@ const { links } = Astro.props;
   role="dialog"
   aria-modal="true"
   aria-label="Navigation menu"
-  class="fixed inset-0 z-[100] md:hidden opacity-0 invisible pointer-events-none transition-all duration-300 ease-out data-[open=true]:opacity-100 data-[open=true]:visible data-[open=true]:pointer-events-auto"
+  class="fixed inset-0 z-[100] md:hidden opacity-0 invisible pointer-events-none transition-all duration-300 ease-out data-[open=true]:opacity-100 data-[open=true]:visible data-[open=true]:pointer-events-auto print:hidden"
   data-open="false"
 >
   <div
@@ -49,11 +49,14 @@ const { links } = Astro.props;
     <nav class="flex flex-col gap-2 pt-8" aria-labelledby="mobile-nav-heading">
       <h2 id="mobile-nav-heading" class="sr-only">Mobile navigation</h2>
       {
-        links.map(({ href, label, ariaLabel }) => (
+        links.map(({ href, label, ariaLabel, external, download }) => (
           <a
             href={href}
             class="mobile-nav-link py-4 text-lg font-medium text-charcoal hover:text-gold border-b border-gray-100 transition-colors"
             aria-label={ariaLabel ?? `Go to ${label} section`}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+            download={download === true ? "" : (download || undefined)}
           >
             {label}
           </a>
@@ -67,5 +70,11 @@ const { links } = Astro.props;
   /* Ensure solid background; theme token may not always apply in all browsers */
   #mobile-menu-panel {
     background-color: var(--color-paper, #faf9f6);
+  }
+  /* Prevent backdrop flash/overlay when menu is closed - some browsers need explicit rules */
+  #mobile-menu:not([data-open="true"]) {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
   }
 </style>

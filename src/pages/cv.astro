@@ -1,0 +1,604 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Anastasia Tulentseva - CV";
+const websiteUrl = "https://anastasia.tulentsev.com";
+---
+
+<Layout
+  title={title}
+  description="CV / Résumé - Anastasia Tulentseva, Chief Technology Officer & Co-Founder"
+  noindex
+  navLinks={[
+    {
+      href: "/cv.pdf",
+      label: "Download PDF",
+      ariaLabel: "Download CV as PDF",
+      external: true,
+      download: "Anastasia_Tulentseva_CV.pdf",
+    },
+  ]}
+>
+  <main class="w-full min-w-0 overflow-x-hidden">
+    <style is:global>
+      .cv-header {
+        background-color: var(--color-charcoal, #1f2937);
+      }
+      @media print {
+        @page {
+          margin: 0;
+          size: A4;
+        }
+        body {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          background-color: white !important;
+          margin: 0;
+          padding: 0;
+        }
+        .print-content {
+          padding-left: 0.8cm !important;
+          padding-right: 0.8cm !important;
+        }
+        .print-edu-skills-grid {
+          display: grid !important;
+          grid-template-columns: 1fr 2fr !important;
+          gap: 1rem !important;
+        }
+        .print-education-col {
+          grid-column: 1 !important;
+        }
+        .print-skills-col {
+          grid-column: 2 !important;
+        }
+        .break-before-page {
+          page-break-before: always;
+          padding-top: 2rem;
+          margin-top: 2rem;
+          display: block;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .cv-header {
+          background-color: var(--color-charcoal, #1f2937) !important;
+        }
+      }
+    </style>
+
+    <div
+      class="py-8 px-4 sm:px-8 print:py-0 print:px-0 min-h-screen print:min-h-0"
+    >
+      <div
+        class="max-w-4xl mx-auto bg-white shadow-xl print:shadow-none print:w-full print:max-w-none rounded-none sm:rounded-lg print:rounded-none overflow-hidden text-charcoal font-sans leading-relaxed relative"
+      >
+        <!-- Header Section -->
+        <header
+          class="cv-header text-white p-8 sm:p-10 print:text-white print:p-6 print:pb-4 relative"
+        >
+          <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 print:flex-row print:justify-between print:items-center print:gap-2"
+          >
+            <div>
+              <h1
+                class="font-serif text-3xl sm:text-4xl font-bold tracking-tight mb-2 print:text-3xl print:mb-0"
+              >
+                Anastasia Tulentseva
+              </h1>
+              <h2
+                class="text-xl text-gray-400 font-medium tracking-wide print:text-lg"
+              >
+                Chief Technology Officer & Co-Founder
+              </h2>
+            </div>
+            <div
+              class="text-sm space-y-2 text-gray-400 min-w-fit print:text-xs print:space-y-1 print:text-right"
+            >
+              <div class="flex items-center gap-2 print:justify-end">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="print:w-3 print:h-3"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Dublin, Ireland</span>
+              </div>
+              <div class="flex items-center gap-2 print:justify-end">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="print:w-3 print:h-3"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <a
+                  href="mailto:anastasiia.tulentseva@gmail.com"
+                  class="hover:text-white transition-colors"
+                  >anastasiia.tulentseva@gmail.com</a
+                >
+              </div>
+              <div class="flex items-center gap-2 print:justify-end">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="print:w-3 print:h-3"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+                <a
+                  href="tel:+353894853415"
+                  class="hover:text-white transition-colors">+353 89 485 3415</a
+                >
+              </div>
+              <div
+                class="flex gap-4 pt-1 print:pt-0 print:justify-end print:gap-2"
+              >
+                <a
+                  href={websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-1 hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="print:w-3 print:h-3"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                    ></path>
+                  </svg>
+                  <span
+                    class="underline decoration-gray-500 hover:decoration-white"
+                    >Website</span
+                  >
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/anastasiiatultenseva"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-1 hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="print:w-3 print:h-3"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                  <span
+                    class="underline decoration-gray-500 hover:decoration-white"
+                    >LinkedIn</span
+                  >
+                </a>
+                <a
+                  href="https://github.com/anastasiiatulentseva"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-1 hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="print:w-3 print:h-3"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                  <span
+                    class="underline decoration-gray-500 hover:decoration-white"
+                    >GitHub</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <div
+          class="print-content p-8 sm:p-10 space-y-8 print:p-6 print:space-y-5"
+        >
+          <!-- Profile Summary -->
+          <section>
+            <h3
+              class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-4 print:mb-2 print:text-base print:pb-1"
+            >
+              Profile
+            </h3>
+            <p class="text-gray-700 text-sm print:leading-tight">
+              15+ years in technology. I convert high-level business
+              requirements into functioning products through structured,
+              low-stress team workflows. My approach focuses on lean development
+              - controlling costs and removing operational friction for all team
+              members. I synchronize commercial ambition with technical capacity
+              to prevent waste and ensure every development cycle drives
+              tangible business value.
+            </p>
+            <div class="text-xs text-gray-500 mt-2">
+              Core Competencies: Product Strategy, Cross-Functional Leadership,
+              Stakeholder Communication, Delivery Leadership.
+            </div>
+          </section>
+
+          <!-- Experience Section -->
+          <section>
+            <h3
+              class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-6 print:mb-2 print:text-base print:pb-1"
+            >
+              Experience
+            </h3>
+
+            <!-- Anato -->
+            <div class="mb-10 break-inside-avoid print:mb-4">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4
+                  class="font-serif text-xl font-bold text-charcoal print:text-lg"
+                >
+                  Chief Technology Officer & Co-Founder
+                </h4>
+                <span
+                  class="text-sm font-medium text-gray-500 whitespace-nowrap"
+                  >Apr 2025 – Present</span
+                >
+              </div>
+              <div
+                class="text-gray-700 font-semibold mb-2 flex flex-col gap-0.5 text-sm"
+              >
+                <div>
+                  Anato <span class="text-gray-400">|</span> Dublin, Ireland
+                </div>
+                <div class="text-xs text-gray-500 font-normal">
+                  Food startup delivering next-generation crumb structure
+                  analysis for the baking industry.
+                </div>
+              </div>
+              <div class="space-y-3 print:space-y-2">
+                <div>
+                  <h5
+                    class="text-sm font-bold text-charcoal uppercase mb-1 tracking-wide"
+                  >
+                    Strategic Leadership & Business Growth
+                  </h5>
+                  <ul
+                    class="list-disc pl-5 space-y-0.5 text-sm text-gray-700 print:leading-snug"
+                  >
+                    <li>
+                      <span class="font-semibold"
+                        >Product Strategy & Roadmapping:</span
+                      > Co-developed product strategy with CEO, translating vision
+                      into a grounded 6-month execution plan and a 24-month strategic
+                      roadmap.
+                    </li>
+                    <li>
+                      <span class="font-semibold"
+                        >Strategic Engagement & Funding:</span
+                      > Key contributor to recognition as Finalist in National Startup
+                      Awards. Represented technical organization at Web Summit. Collaborated
+                      with Enterprise Ireland on funding documentation, and secured
+                      cloud infrastructure grants to maximize runway.
+                    </li>
+                    <li>
+                      <span class="font-semibold"
+                        >Product Delivery Leadership:</span
+                      > Led a cross-functional squad of 5 to deliver a synchronized
+                      multi-platform launch, overseeing the transition of the iOS
+                      app from legacy distribution to its first public release on
+                      the Apple App Store.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h5
+                    class="text-sm font-bold text-charcoal uppercase mb-1 tracking-wide"
+                  >
+                    Technical Execution & Infrastructure
+                  </h5>
+                  <ul
+                    class="list-disc pl-5 space-y-0.5 text-sm text-gray-700 print:leading-snug"
+                  >
+                    <li>
+                      <span class="font-semibold">Core Platform Strategy:</span> Empowered
+                      the engineering team to transform a restrictive legacy codebase
+                      into a scalable platform, enabling a 60% reduction in projected
+                      scaling costs.
+                    </li>
+                    <li>
+                      <span class="font-semibold"
+                        >Cloud Strategy & Cost Control:</span
+                      > Managed the platform migration from Azure to AWS to secure
+                      system stability, subsequently utilizing usage analytics to
+                      drive a fleet optimization initiative that reduced monthly operational
+                      costs by 30%.
+                    </li>
+                    <li>
+                      <span class="font-semibold"
+                        >Product Discovery & Development:</span
+                      > Identified a competitive gap in analytics and client operations
+                      then designed and delivered the unified web platform, enabling
+                      successful investor demos and early pilot acquisition.
+                    </li>
+                    <li>
+                      <span class="font-semibold">SDLC Optimization:</span> Established
+                      a structured product delivery lifecycle, implementing Jira workflows
+                      to synchronize execution across ML, Mobile, and Backend streams.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kubicle -->
+            <div class="mb-8 break-inside-avoid print:mb-4">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4
+                  class="font-serif text-lg font-bold text-charcoal print:text-base"
+                >
+                  Senior Product Engineer
+                </h4>
+                <span
+                  class="text-sm font-medium text-gray-500 whitespace-nowrap"
+                  >Jul 2023 – Dec 2024</span
+                >
+              </div>
+              <div
+                class="text-gray-700 font-semibold mb-1 flex items-center gap-1 text-sm"
+              >
+                Kubicle <span class="text-gray-400">|</span> Dublin, Ireland
+              </div>
+              <div class="text-xs text-gray-500 mb-1">
+                B2B e-learning platform. <span class="font-medium"
+                  >Tech stack:</span
+                > Ruby on Rails, React.js, PostgreSQL, MUI.
+              </div>
+              <ul
+                class="list-disc pl-5 space-y-0.5 text-sm text-gray-700 print:leading-snug"
+              >
+                <li>
+                  <span class="font-semibold">Product Engineering:</span> Took end-to-end
+                  ownership of customer-facing features, bridging the gap between
+                  product strategy and technical execution. Collaborated with Head
+                  of Product to overhaul UX/UI for admins, driving adoption of React
+                  and MUI.
+                </li>
+                <li>
+                  <span class="font-semibold">Operational Efficiency:</span> Championed
+                  internal tooling improvements for Sales/CS teams. Delivered high-impact
+                  optimizations to management dashboard, improving workflow speed
+                  and team morale.
+                </li>
+                <li>
+                  <span class="font-semibold">Process & Strategy:</span> Deepened
+                  Agile expertise, participating in story mapping and roadmap planning
+                  to align engineering outputs with business goals.
+                </li>
+                <li>
+                  <span class="font-semibold">Technical Performance:</span> Engineered
+                  data-intensive reporting features; optimized Rails API performance
+                  to ensure scalability.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Bonkers.ie -->
+            <div class="mb-8 break-inside-avoid print:mb-4 break-before-page">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4
+                  class="font-serif text-lg font-bold text-charcoal print:text-base"
+                >
+                  Senior Software Engineer & Project Lead
+                </h4>
+                <span
+                  class="text-sm font-medium text-gray-500 whitespace-nowrap"
+                  >Nov 2019 – Dec 2022</span
+                >
+              </div>
+              <div
+                class="text-gray-700 font-semibold mb-1 flex items-center gap-1 text-sm"
+              >
+                Bonkers.ie <span class="text-gray-400">|</span> Dublin, Ireland
+              </div>
+              <div class="text-xs text-gray-500 mb-1">
+                Price comparison website. <span class="font-medium"
+                  >Tech stack:</span
+                > Ruby on Rails, Vue.js, MySQL, OpenSearch, AWS.
+              </div>
+              <ul
+                class="list-disc pl-5 space-y-0.5 text-sm text-gray-700 print:leading-snug"
+              >
+                <li>
+                  <span class="font-semibold">Delivery Excellence:</span> Spearheaded
+                  inaugural enterprise integration, leading end-to-end development
+                  of two product lines. Delivered all milestones on time to match
+                  strict partner deployment cycles.
+                </li>
+                <li>
+                  <span class="font-semibold">Quality & Reliability:</span> Ensured
+                  flawless launch with zero significant bugs in production. Managed
+                  post-launch stabilization and coordinated troubleshooting with partner
+                  engineering team.
+                </li>
+                <li>
+                  <span class="font-semibold">Technical Leadership:</span> Lead technical
+                  liaison for Zurich Insurance API engineers, managing complex data
+                  integration and QA feedback. Aligned internal Front-End/Back-End
+                  efforts to satisfy strict requirements.
+                </li>
+              </ul>
+            </div>
+
+            <!-- InStat -->
+            <div class="mb-8 break-inside-avoid print:mb-4">
+              <div class="flex justify-between items-baseline mb-1">
+                <h4
+                  class="font-serif text-lg font-bold text-charcoal print:text-base"
+                >
+                  Team Lead & Full-Stack Engineer
+                </h4>
+                <span
+                  class="text-sm font-medium text-gray-500 whitespace-nowrap"
+                  >May 2017 – Sep 2019</span
+                >
+              </div>
+              <div
+                class="text-gray-700 font-semibold mb-1 flex items-center gap-1 text-sm"
+              >
+                InStat Sport <span class="text-gray-400">|</span> Moscow, Russia
+              </div>
+              <div class="text-xs text-gray-500 mb-1">
+                Sports performance analysis company. <span class="font-medium"
+                  >Tech stack:</span
+                > Ruby on Rails, React.js, Node.js, Elasticsearch, PostgreSQL.
+              </div>
+              <ul
+                class="list-disc pl-5 space-y-0.5 text-sm text-gray-700 print:leading-snug"
+              >
+                <li>
+                  <span class="font-semibold">Rapid Progression:</span> Fast-tracked
+                  from Junior to Team Lead. Established coding standards for new Node.js/React
+                  projects and led technical hiring.
+                </li>
+                <li>
+                  <span class="font-semibold">Technical Optimization:</span> Collaborated
+                  with Database and DevOps teams to optimize query efficiency and
+                  ensure API reliability for high-load data services.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Education & Skills Grid -->
+          <div
+            class="print-edu-skills-grid grid grid-cols-1 md:grid-cols-3 gap-8 break-inside-avoid print:gap-4 print:mt-2"
+          >
+            <section class="print-education-col md:col-span-1">
+              <h3
+                class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-4 print:mb-2 print:text-base print:pb-1"
+              >
+                Education
+              </h3>
+              <div>
+                <h4 class="font-bold text-charcoal text-sm">Master's Degree</h4>
+                <div class="text-sm text-gray-700 font-medium">
+                  Computer Science
+                </div>
+                <div class="text-xs text-gray-500 mt-1">
+                  Berdyansk University of Management and Business, Ukraine
+                </div>
+              </div>
+            </section>
+
+            <section class="print-skills-col md:col-span-2">
+              <h3
+                class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-4 print:mb-2 print:text-base print:pb-1"
+              >
+                Skills
+              </h3>
+              <div class="space-y-3 print:space-y-2">
+                <div>
+                  <h4
+                    class="text-sm font-bold text-charcoal uppercase tracking-wide mb-0.5"
+                  >
+                    Strategic Leadership
+                  </h4>
+                  <p class="text-sm text-gray-700 leading-snug">
+                    Product Strategy, AI/ML Strategy, Roadmap Planning, Investor
+                    Relations, Technical Due Diligence, Vendor Negotiation,
+                    Budget Forecasting & Cost Control, GDPR Compliance.
+                  </p>
+                </div>
+                <div>
+                  <h4
+                    class="text-sm font-bold text-charcoal uppercase tracking-wide mb-0.5"
+                  >
+                    Engineering Management
+                  </h4>
+                  <p class="text-sm text-gray-700 leading-snug">
+                    Agile & Scrum, Story Mapping, Technical Hiring & Team
+                    Culture, CI/CD Strategy, SDLC Optimization, Incident
+                    Management.
+                  </p>
+                </div>
+                <div>
+                  <h4
+                    class="text-sm font-bold text-charcoal uppercase tracking-wide mb-0.5"
+                  >
+                    Technical Architecture
+                  </h4>
+                  <p class="text-sm text-gray-700 leading-snug">
+                    <span class="font-semibold text-gray-600">Core:</span> Ruby on
+                    Rails, Node.js, React.js, Vue.js, TypeScript, REST API.<br
+                    />
+                    <span class="font-semibold text-gray-600"
+                      >Infra & Data:</span
+                    > AWS, Azure, PostgreSQL, MySQL, Docker, Playwright, Vitest.<br
+                    />
+                    <span class="font-semibold text-gray-600">Tools:</span> Jira,
+                    Confluence, Git, GitHub Actions, Postman, Figma, Firebase.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
