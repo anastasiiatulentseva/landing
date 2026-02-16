@@ -48,11 +48,20 @@ const navLinks = navLinksProp ?? defaultNavLinks;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2MMJ3QV6N8"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2MMJ3QV6N8');
+    </script>
   </head>
 
   <body
     id="top"
-    class="bg-paper text-charcoal font-sans antialiased selection:bg-gold selection:text-white"
+    class="min-h-screen flex flex-col bg-paper text-charcoal font-sans antialiased selection:bg-gold selection:text-white"
   >
     <nav
       class="sticky top-0 z-[110] w-full bg-paper/90 backdrop-blur-sm border-b border-gray-200/50 transition-all duration-300 print:hidden"
@@ -156,7 +165,9 @@ const navLinks = navLinksProp ?? defaultNavLinks;
 
     <MobileMenu links={navLinks} />
 
-    <slot />
+    <div class="flex-1">
+      <slot />
+    </div>
 
     <footer class="w-full py-12 px-6 bg-paper border-t border-gray-200 print:hidden">
       <div
@@ -179,7 +190,7 @@ const navLinks = navLinksProp ?? defaultNavLinks;
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/in/anastasiiatultenseva"
+            href="https://www.linkedin.com/in/atulentseva/"
             target="_blank"
             rel="noopener noreferrer"
             class="text-gray-500 hover:text-gold transition-colors"
