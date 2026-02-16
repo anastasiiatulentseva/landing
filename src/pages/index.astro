@@ -5,10 +5,11 @@ import profileImage from "../assets/profile.jpg";
 import profileOgImage from "../assets/profile-og.png";
 
 const site = import.meta.env.SITE;
-const title = "Anastasia Tulentseva | Engineering Strategy & Leadership";
+const title = "Anastasia Tulentseva | CTO";
 const description =
   "Creating technical clarity. Delivering solutions that stick.";
-const ogImage = new URL(profileOgImage.src, site).href;
+// Cache-bust for Telegram/other platforms that cache OG images aggressively
+const ogImage = `${new URL(profileOgImage.src, site).href}?v=2`;
 const ogImageWidth = String(profileOgImage.width);
 const ogImageHeight = String(profileOgImage.height);
 ---
