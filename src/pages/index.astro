@@ -2,17 +2,22 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import profileImage from "../assets/profile.jpg";
+import profileOgImage from "../assets/profile-og.png";
 
 const site = import.meta.env.SITE;
 const title = "Anastasia Tulentseva | Engineering Strategy & Leadership";
 const description =
-  "Anastasia Tulentseva - Chief Technology Officer. Synchronizing commercial ambition with technical capacity to deliver scalable software solutions.";
-const ogImage = new URL(profileImage.src, site).href;
-const ogImageWidth = String(profileImage.width);
-const ogImageHeight = String(profileImage.height);
+  "Creating technical clarity. Delivering solutions that stick.";
+const ogImage = new URL(profileOgImage.src, site).href;
+const ogImageWidth = String(profileOgImage.width);
+const ogImageHeight = String(profileOgImage.height);
 ---
 
-<Layout title={title} description={description} headerName="Anastasia Tulentseva">
+<Layout
+  title={title}
+  description={description}
+  headerName="Anastasia Tulentseva"
+>
   <Fragment slot="head">
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -20,546 +25,567 @@ const ogImageHeight = String(profileImage.height);
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content={ogImageWidth} />
     <meta property="og:image:height" content={ogImageHeight} />
+    <meta
+      property="og:image:alt"
+      content="Professional headshot of Anastasia Tulentseva"
+    />
     <meta property="og:url" content={new URL(Astro.url.pathname, site).href} />
     <meta property="og:site_name" content="Anastasia Tulentseva" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta
+      name="twitter:image:alt"
+      content="Professional headshot of Anastasia Tulentseva"
+    />
   </Fragment>
 
   <main class="w-full min-w-0 overflow-x-hidden">
-      <header class="relative w-full pt-24 pb-32 md:pt-40 md:pb-48 px-6">
-        <div
-          class="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-w-0"
-        >
-          <div class="text-center md:text-left order-2 md:order-1 min-w-0">
-            <div
-              class="inline-block px-3 py-1 mb-8 text-xs font-bold tracking-widest uppercase text-gold border border-gold/20 rounded-full"
-            >
-              Chief Technology Officer
-            </div>
-
-            <h1
-              class="font-serif text-5xl md:text-7xl leading-[1.1] font-medium text-charcoal mb-8"
-            >
-              Creating technical clarity.<br />
-              <span class="italic text-gray-500"
-                >Delivering solutions that stick.</span
-              >
-            </h1>
-
-            <p
-              class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed mb-10 mx-auto md:mx-0"
-            >
-              I translate early adopter insights into clear technical roadmaps,
-              making the journey straightforward, transparent, and stress-free.
-              My leadership centers on purposeful collaboration - aligning teams
-              to build software that is genuinely valued.
-            </p>
-
-            <div
-              class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
-            >
-              <a
-                href="/cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-charcoal bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm group"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="text-gray-400 group-hover:text-charcoal transition-colors"
-                >
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" x2="12" y1="15" y2="3"></line>
-                </svg>
-                Download CV
-              </a>
-              <a
-                href="https://www.linkedin.com/in/anastasiiatultenseva"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-white bg-charcoal rounded-lg hover:bg-gray-800 transition-all shadow-md group"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                  ></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-                LinkedIn Profile
-              </a>
-            </div>
-          </div>
-
-          <div class="order-1 md:order-2 flex justify-center md:justify-end min-w-0">
-            <div
-              class="relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100 shadow-xl"
-            >
-              <Image
-                src={profileImage}
-                alt="Anastasia Tulentseva Portrait"
-                width={600}
-                height={750}
-                loading="eager"
-                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out transform hover:scale-105"
-              />
-              <div
-                class="absolute inset-0 border-2 border-charcoal/5 rounded-2xl pointer-events-none"
-              >
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <section
-        id="competencies"
-        class="w-full py-24 px-6 bg-white border-y border-gray-100"
+    <header class="relative w-full pt-24 pb-32 md:pt-40 md:pb-48 px-6">
+      <div
+        class="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-w-0"
       >
-        <div class="w-full max-w-5xl mx-auto min-w-0">
+        <div class="text-center md:text-left order-2 md:order-1 min-w-0">
           <div
-            class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-4"
+            class="inline-block px-3 py-1 mb-8 text-xs font-bold tracking-widest uppercase text-gold border border-gold/20 rounded-full"
           >
-            <h2 class="font-serif text-4xl text-charcoal text-center md:text-left">Core Competencies</h2>
-            <p class="text-gray-500 max-w-md text-right hidden md:block">
-              Bridging the gap between commercial strategy and engineering
-              execution.
-            </p>
+            Chief Technology Officer
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="group flex flex-col items-center text-center md:items-start md:text-left">
-              <div
-                class="w-12 h-12 mb-6 flex items-center justify-center rounded-full bg-paper text-gold group-hover:scale-110 transition-transform duration-300"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-              </div>
-              <h3 class="font-serif text-2xl mb-4 text-charcoal">
-                Strategic Leadership
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                Product Strategy, Purposeful Collaboration, and Aligning Vision.
-                Technical due diligence, financial modeling, and vendor
-                negotiation.
-              </p>
-            </div>
+          <h1
+            class="font-serif text-5xl md:text-7xl leading-[1.1] font-medium text-charcoal mb-8"
+          >
+            Creating technical clarity.<br />
+            <span class="italic text-gray-500"
+              >Delivering solutions that stick.</span
+            >
+          </h1>
 
-            <div class="group flex flex-col items-center text-center md:items-start md:text-left">
-              <div
-                class="w-12 h-12 mb-6 flex items-center justify-center rounded-full bg-paper text-gold group-hover:scale-110 transition-transform duration-300"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
-                  ></polygon>
-                </svg>
-              </div>
-              <h3 class="font-serif text-2xl mb-4 text-charcoal">
-                Engineering Management
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                Agile & Scrum, Technical Hiring, and Incident Management.
-                Building team culture, optimizing SDLC, and defining CI/CD
-                strategy.
-              </p>
-            </div>
+          <p
+            class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed mb-10 mx-auto md:mx-0"
+          >
+            I translate early adopter insights into clear technical roadmaps,
+            making the journey straightforward, transparent, and stress-free. My
+            leadership centers on purposeful collaboration - aligning teams to
+            build software that is genuinely valued.
+          </p>
 
-            <div class="group flex flex-col items-center text-center md:items-start md:text-left">
-              <div
-                class="w-12 h-12 mb-6 flex items-center justify-center rounded-full bg-paper text-gold group-hover:scale-110 transition-transform duration-300"
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+          >
+            <a
+              href="/cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-charcoal bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm group"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-gray-400 group-hover:text-charcoal transition-colors"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="4 17 10 11 14 15 21 8"></polyline>
-                  <line x1="21" y1="8" x2="21" y2="21"></line>
-                  <line x1="21" y1="21" x2="3" y2="21"></line>
-                  <line x1="3" y1="21" x2="3" y2="10"></line>
-                </svg>
-              </div>
-              <h3 class="font-serif text-2xl mb-4 text-charcoal">
-                System Architecture
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                Scalable full-stack systems (Rails, Node, React). Practical
-                experience with cloud environments (AWS/Azure) and ensuring
-                stability.
-              </p>
-            </div>
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" x2="12" y1="15" y2="3"></line>
+              </svg>
+              Download CV
+            </a>
+            <a
+              href="https://www.linkedin.com/in/anastasiiatultenseva"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-white bg-charcoal rounded-lg hover:bg-gray-800 transition-all shadow-md group"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              LinkedIn Profile
+            </a>
           </div>
         </div>
-      </section>
-
-      <section id="experience" class="w-full py-24 px-6 max-w-4xl mx-auto min-w-0">
-        <h2 class="font-serif text-4xl text-charcoal mb-16 text-center md:text-left">
-          Selected Experience
-        </h2>
 
         <div
-          class="space-y-12 relative border-l border-gray-200 ml-3 md:ml-0 pl-8 md:pl-0"
+          class="order-1 md:order-2 flex justify-center md:justify-end min-w-0"
         >
-          <div class="relative md:grid md:grid-cols-[1fr_3fr] md:gap-12 group">
+          <div
+            class="relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100 shadow-xl"
+          >
+            <Image
+              src={profileImage}
+              alt="Anastasia Tulentseva Portrait"
+              width={600}
+              height={750}
+              loading="eager"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out transform hover:scale-105"
+            />
             <div
-              class="absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-gold md:hidden"
+              class="absolute inset-0 border-2 border-charcoal/5 rounded-2xl pointer-events-none"
             >
-            </div>
-            <div
-              class="hidden md:block absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-paper ring-2 ring-gold group-hover:bg-gold transition-colors"
-            >
-            </div>
-
-            <div class="mb-2 md:mb-0 md:text-right pt-1">
-              <span
-                class="text-sm font-bold tracking-widest text-gray-400 uppercase"
-                >Apr 2025 — Present</span
-              >
-            </div>
-            <div>
-              <h3 class="text-2xl font-serif text-charcoal">
-                CTO & Co-Founder
-              </h3>
-              <div class="text-gold font-medium mb-4">Anato</div>
-              <p class="text-gray-600 mb-4 leading-relaxed">
-                Food startup delivering next-generation crumb structure analysis
-                for the baking industry.
-              </p>
-              <ul class="space-y-2">
-                <li class="flex items-start gap-3 text-sm text-gray-600">
-                  <span
-                    class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
-                  ></span>
-                  Co-developed product strategy, translating vision into a grounded
-                  6-month execution plan and 24-month roadmap.
-                </li>
-                <li class="flex items-start gap-3 text-sm text-gray-600">
-                  <span
-                    class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
-                  ></span>
-                  Established a structured product delivery lifecycle, implementing
-                  workflows that synchronized execution across ML, Mobile, and Backend
-                  streams.
-                </li>
-                <li class="flex items-start gap-3 text-sm text-gray-600">
-                  <span
-                    class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
-                  ></span>
-                  Empowered engineering to transform legacy codebase into a scalable
-                  platform, projecting a 60% reduction in scaling costs.
-                </li>
-                <li class="flex items-start gap-3 text-sm text-gray-600">
-                  <span
-                    class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
-                  ></span>
-                  Secured cloud infrastructure grants and contributed to recognition
-                  as Finalist in National Startup Awards.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="relative md:grid md:grid-cols-[1fr_3fr] md:gap-12 group">
-            <div
-              class="absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-gray-300 md:hidden"
-            >
-            </div>
-            <div
-              class="hidden md:block absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-paper ring-2 ring-gray-200 group-hover:ring-gold transition-colors"
-            >
-            </div>
-
-            <div class="mb-2 md:mb-0 md:text-right pt-1">
-              <span
-                class="text-sm font-bold tracking-widest text-gray-400 uppercase"
-                >Jul 2023 — Dec 2024</span
-              >
-            </div>
-            <div>
-              <h3 class="text-2xl font-serif text-charcoal">
-                Senior Product Engineer
-              </h3>
-              <div class="text-gold font-medium mb-4">Kubicle</div>
-              <p class="text-gray-600 mb-4 leading-relaxed">
-                B2B e-learning platform.
-              </p>
-              <ul class="space-y-2">
-                <li class="flex items-start gap-3 text-sm text-gray-600">
-                  <span
-                    class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
-                  ></span>
-                  Championed internal tooling improvements for Sales/CS teams, increasing
-                  workflow speed and morale.
-                </li>
-                <li class="flex items-start gap-3 text-sm text-gray-600">
-                  <span
-                    class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
-                  ></span>
-                  Deepened Agile expertise, participating in story mapping and roadmap
-                  planning to align engineering outputs with business goals.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="relative md:grid md:grid-cols-[1fr_3fr] md:gap-12 group">
-            <div
-              class="absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-gray-300 md:hidden"
-            >
-            </div>
-            <div
-              class="hidden md:block absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-paper ring-2 ring-gray-200 group-hover:ring-gold transition-colors"
-            >
-            </div>
-
-            <div class="mb-2 md:mb-0 md:text-right pt-1">
-              <span
-                class="text-sm font-bold tracking-widest text-gray-400 uppercase"
-                >Nov 2019 — Dec 2022</span
-              >
-            </div>
-            <div>
-              <h3 class="text-2xl font-serif text-charcoal">
-                Senior Software Engineer & Project Lead
-              </h3>
-              <div class="text-gold font-medium mb-4">Bonkers.ie</div>
-              <p class="text-gray-600 leading-relaxed mb-4">
-                Price comparison website.
-              </p>
-              <ul class="space-y-2">
-                <li class="flex items-start gap-3 text-sm text-gray-600">
-                  <span
-                    class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
-                  ></span>
-                  Spearheaded the inaugural enterprise integration as lead technical
-                  liaison for Zurich Insurance, leading end-to-end development of
-                  two product lines. Managed complex data integration and QA feedback,
-                  aligned internal Front-End and Back-End efforts, and delivered all
-                  milestones on time to match strict partner deployment cycles.
-                </li>
-                <li class="flex items-start gap-3 text-sm text-gray-600">
-                  <span
-                    class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
-                  ></span>
-                  Ensured a flawless launch with zero significant bugs in production.
-                  Managed post-launch stabilization and coordinated troubleshooting
-                  with the partner engineering team.
-                </li>
-              </ul>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </header>
 
-      <section
-        id="testimonials"
-        class="w-full py-24 bg-charcoal text-white overflow-hidden"
-      >
-        <div class="w-full max-w-4xl mx-auto px-6 relative min-w-0">
-          <div class="text-center mb-12">
-            <svg
-              class="w-12 h-12 mx-auto text-gold opacity-50"
-              fill="currentColor"
-              viewBox="0 0 24 24"
+    <section
+      id="competencies"
+      class="w-full py-24 px-6 bg-white border-y border-gray-100"
+    >
+      <div class="w-full max-w-5xl mx-auto min-w-0">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-4"
+        >
+          <h2
+            class="font-serif text-4xl text-charcoal text-center md:text-left"
+          >
+            Core Competencies
+          </h2>
+          <p class="text-gray-500 max-w-md text-right hidden md:block">
+            Bridging the gap between commercial strategy and engineering
+            execution.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div
+            class="group flex flex-col items-center text-center md:items-start md:text-left"
+          >
+            <div
+              class="w-12 h-12 mb-6 flex items-center justify-center rounded-full bg-paper text-gold group-hover:scale-110 transition-transform duration-300"
             >
-              <path
-                d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z"
-              ></path>
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl mb-4 text-charcoal">
+              Strategic Leadership
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Product Strategy, Purposeful Collaboration, and Aligning Vision.
+              Technical due diligence, financial modeling, and vendor
+              negotiation.
+            </p>
           </div>
 
           <div
-            id="testimonials-slider"
-            class="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-8"
-            style="scrollbar-width: none; -ms-overflow-style: none;"
+            class="group flex flex-col items-center text-center md:items-start md:text-left"
           >
             <div
-              class="testimonial-slide min-w-full snap-center flex flex-col items-center justify-center text-center px-4"
+              class="w-12 h-12 mb-6 flex items-center justify-center rounded-full bg-paper text-gold group-hover:scale-110 transition-transform duration-300"
             >
-              <figure>
-                <blockquote
-                  class="font-serif text-2xl md:text-3xl leading-relaxed mb-8"
-                >
-                  "She always impressed me with her intelligence and ability to
-                  grasp complex topics quickly. Anastasia brings a pragmatic
-                  approach to her work, carefully considering trade-offs between
-                  solutions to ensure smart, sustainable choices aligned with
-                  industry best practices."
-                </blockquote>
-                <figcaption>
-                  <div class="font-bold text-white">Bryan Dwyer</div>
-                  <div class="text-sm text-gray-400">
-                    Head of Product, Kubicle
-                  </div>
-                </figcaption>
-              </figure>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                ></polygon>
+              </svg>
             </div>
-
-            <div
-              class="testimonial-slide min-w-full snap-center flex flex-col items-center justify-center text-center px-4"
-            >
-              <figure>
-                <blockquote
-                  class="font-serif text-2xl md:text-3xl leading-relaxed mb-8"
-                >
-                  "Anastasia made a remarkable leap from engineer to strategic
-                  tech leader. Her openness and courage accelerated her growth
-                  and significantly strengthened her ability to influence."
-                </blockquote>
-                <figcaption>
-                  <div class="font-bold text-white">Carol Palombini</div>
-                  <div class="text-sm text-gray-400">
-                    Executive Coach, Palombini Consulting
-                  </div>
-                </figcaption>
-              </figure>
-            </div>
-
-            <div
-              class="testimonial-slide min-w-full snap-center flex flex-col items-center justify-center text-center px-4"
-            >
-              <figure>
-                <blockquote
-                  class="font-serif text-2xl md:text-3xl leading-relaxed mb-8"
-                >
-                  "Anastasia sets clear priorities and context so I can focus
-                  and deliver. She combines trust and structure: gives autonomy
-                  while always being available to discuss ideas. Her
-                  straightforward, kind, and respectful communication makes
-                  collaborating easy — even when navigating the most complex
-                  decisions."
-                </blockquote>
-                <figcaption>
-                  <div class="font-bold text-white">Alex Kubarev</div>
-                  <div class="text-sm text-gray-400">
-                    Senior iOS Engineer, Anato
-                  </div>
-                </figcaption>
-              </figure>
-            </div>
+            <h3 class="font-serif text-2xl mb-4 text-charcoal">
+              Engineering Management
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Agile & Scrum, Technical Hiring, and Incident Management. Building
+              team culture, optimizing SDLC, and defining CI/CD strategy.
+            </p>
           </div>
 
-          <div id="testimonials-dots" class="flex justify-center gap-3 mt-4">
-            <button
-              type="button"
-              aria-label="Go to slide 1"
-              class="testimonial-dot w-2 h-2 rounded-full bg-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-charcoal"
-              data-index="0"></button>
-            <button
-              type="button"
-              aria-label="Go to slide 2"
-              class="testimonial-dot w-2 h-2 rounded-full bg-gray-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-charcoal"
-              data-index="1"></button>
-            <button
-              type="button"
-              aria-label="Go to slide 3"
-              class="testimonial-dot w-2 h-2 rounded-full bg-gray-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-charcoal"
-              data-index="2"></button>
+          <div
+            class="group flex flex-col items-center text-center md:items-start md:text-left"
+          >
+            <div
+              class="w-12 h-12 mb-6 flex items-center justify-center rounded-full bg-paper text-gold group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="4 17 10 11 14 15 21 8"></polyline>
+                <line x1="21" y1="8" x2="21" y2="21"></line>
+                <line x1="21" y1="21" x2="3" y2="21"></line>
+                <line x1="3" y1="21" x2="3" y2="10"></line>
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl mb-4 text-charcoal">
+              System Architecture
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Scalable full-stack systems (Rails, Node, React). Practical
+              experience with cloud environments (AWS/Azure) and ensuring
+              stability.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+
+    <section
+      id="experience"
+      class="w-full py-24 px-6 max-w-4xl mx-auto min-w-0"
+    >
+      <h2
+        class="font-serif text-4xl text-charcoal mb-16 text-center md:text-left"
+      >
+        Track Record
+      </h2>
+
+      <div
+        class="space-y-12 relative border-l border-gray-200 ml-3 md:ml-0 pl-8 md:pl-0"
+      >
+        <div class="relative md:grid md:grid-cols-[1fr_3fr] md:gap-12 group">
+          <div
+            class="absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-gold md:hidden"
+          >
+          </div>
+          <div
+            class="hidden md:block absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-paper ring-2 ring-gold group-hover:bg-gold transition-colors"
+          >
+          </div>
+
+          <div class="mb-2 md:mb-0 md:text-right pt-1">
+            <span
+              class="text-sm font-bold tracking-widest text-gray-400 uppercase"
+              >Apr 2025 — Present</span
+            >
+          </div>
+          <div>
+            <h3 class="text-2xl font-serif text-charcoal">CTO & Co-Founder</h3>
+            <div class="text-gold font-medium mb-4">Anato</div>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              Food startup delivering next-generation crumb structure analysis
+              for the baking industry.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
+                ></span>
+                Co-developed product strategy, translating vision into a grounded
+                6-month execution plan and 24-month roadmap.
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
+                ></span>
+                Established a structured product delivery lifecycle, implementing
+                workflows that synchronized execution across ML, Mobile, and Backend
+                streams.
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
+                ></span>
+                Empowered engineering to transform legacy codebase into a scalable
+                platform, projecting a 60% reduction in scaling costs.
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
+                ></span>
+                Secured cloud infrastructure grants and contributed to recognition
+                as Finalist in National Startup Awards.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="relative md:grid md:grid-cols-[1fr_3fr] md:gap-12 group">
+          <div
+            class="absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-gray-300 md:hidden"
+          >
+          </div>
+          <div
+            class="hidden md:block absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-paper ring-2 ring-gray-200 group-hover:ring-gold transition-colors"
+          >
+          </div>
+
+          <div class="mb-2 md:mb-0 md:text-right pt-1">
+            <span
+              class="text-sm font-bold tracking-widest text-gray-400 uppercase"
+              >Jul 2023 — Dec 2024</span
+            >
+          </div>
+          <div>
+            <h3 class="text-2xl font-serif text-charcoal">
+              Senior Product Engineer
+            </h3>
+            <div class="text-gold font-medium mb-4">Kubicle</div>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              B2B e-learning platform.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
+                ></span>
+                Championed internal tooling improvements for Sales/CS teams, increasing
+                workflow speed and morale.
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
+                ></span>
+                Deepened Agile expertise, participating in story mapping and roadmap
+                planning to align engineering outputs with business goals.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="relative md:grid md:grid-cols-[1fr_3fr] md:gap-12 group">
+          <div
+            class="absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-gray-300 md:hidden"
+          >
+          </div>
+          <div
+            class="hidden md:block absolute -left-[41px] top-2 w-4 h-4 rounded-full border-2 border-white bg-paper ring-2 ring-gray-200 group-hover:ring-gold transition-colors"
+          >
+          </div>
+
+          <div class="mb-2 md:mb-0 md:text-right pt-1">
+            <span
+              class="text-sm font-bold tracking-widest text-gray-400 uppercase"
+              >Nov 2019 — Dec 2022</span
+            >
+          </div>
+          <div>
+            <h3 class="text-2xl font-serif text-charcoal">
+              Senior Software Engineer & Project Lead
+            </h3>
+            <div class="text-gold font-medium mb-4">Bonkers.ie</div>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              Price comparison website.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
+                ></span>
+                Spearheaded the inaugural enterprise integration as lead technical
+                liaison for Zurich Insurance, leading end-to-end development of two
+                product lines. Managed complex data integration and QA feedback, aligned
+                internal Front-End and Back-End efforts, and delivered all milestones
+                on time to match strict partner deployment cycles.
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
+                ></span>
+                Ensured a flawless launch with zero significant bugs in production.
+                Managed post-launch stabilization and coordinated troubleshooting
+                with the partner engineering team.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="testimonials"
+      class="w-full py-24 bg-charcoal text-white overflow-hidden"
+    >
+      <div class="w-full max-w-4xl mx-auto px-6 relative min-w-0">
+        <div class="text-center mb-12">
+          <svg
+            class="w-12 h-12 mx-auto text-gold opacity-50"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z"
+            ></path>
+          </svg>
+        </div>
+
+        <div
+          id="testimonials-slider"
+          class="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-8"
+          style="scrollbar-width: none; -ms-overflow-style: none;"
+        >
+          <div
+            class="testimonial-slide min-w-full snap-center flex flex-col items-center justify-center text-center px-4"
+          >
+            <figure>
+              <blockquote
+                class="font-serif text-2xl md:text-3xl leading-relaxed mb-8"
+              >
+                "She always impressed me with her intelligence and ability to
+                grasp complex topics quickly. Anastasia brings a pragmatic
+                approach to her work, carefully considering trade-offs between
+                solutions to ensure smart, sustainable choices aligned with
+                industry best practices."
+              </blockquote>
+              <figcaption>
+                <div class="font-bold text-white">Bryan Dwyer</div>
+                <div class="text-sm text-gray-400">
+                  Head of Product, Kubicle
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div
+            class="testimonial-slide min-w-full snap-center flex flex-col items-center justify-center text-center px-4"
+          >
+            <figure>
+              <blockquote
+                class="font-serif text-2xl md:text-3xl leading-relaxed mb-8"
+              >
+                "Anastasia made a remarkable leap from engineer to strategic
+                tech leader. Her openness and courage accelerated her growth and
+                significantly strengthened her ability to influence."
+              </blockquote>
+              <figcaption>
+                <div class="font-bold text-white">Carol Palombini</div>
+                <div class="text-sm text-gray-400">
+                  Executive Coach, Palombini Consulting
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div
+            class="testimonial-slide min-w-full snap-center flex flex-col items-center justify-center text-center px-4"
+          >
+            <figure>
+              <blockquote
+                class="font-serif text-2xl md:text-3xl leading-relaxed mb-8"
+              >
+                "Anastasia sets clear priorities and context so I can focus and
+                deliver. She combines trust and structure: gives autonomy while
+                always being available to discuss ideas. Her straightforward,
+                kind, and respectful communication makes collaborating easy —
+                even when navigating the most complex decisions."
+              </blockquote>
+              <figcaption>
+                <div class="font-bold text-white">Alex Kubarev</div>
+                <div class="text-sm text-gray-400">
+                  Senior iOS Engineer, Anato
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div id="testimonials-dots" class="flex justify-center gap-3 mt-4">
+          <button
+            type="button"
+            aria-label="Go to slide 1"
+            class="testimonial-dot w-2 h-2 rounded-full bg-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-charcoal"
+            data-index="0"></button>
+          <button
+            type="button"
+            aria-label="Go to slide 2"
+            class="testimonial-dot w-2 h-2 rounded-full bg-gray-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-charcoal"
+            data-index="1"></button>
+          <button
+            type="button"
+            aria-label="Go to slide 3"
+            class="testimonial-dot w-2 h-2 rounded-full bg-gray-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-charcoal"
+            data-index="2"></button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
-      (function () {
-        const slider = document.getElementById("testimonials-slider");
-        const dots = document.querySelectorAll(".testimonial-dot");
-        const slides = document.querySelectorAll(".testimonial-slide");
-        const slideCount = slides.length;
+    (function () {
+      const slider = document.getElementById("testimonials-slider");
+      const dots = document.querySelectorAll(".testimonial-dot");
+      const slides = document.querySelectorAll(".testimonial-slide");
+      const slideCount = slides.length;
 
-        function updateDots() {
-          if (!slider || dots.length === 0) return;
-          const scrollLeft = slider.scrollLeft;
-          const slideWidth = slider.offsetWidth;
-          const gap = 32;
-          const totalSlideWidth = slideWidth + gap;
-          const activeIndex = Math.round(scrollLeft / totalSlideWidth);
-          const index = Math.min(Math.max(0, activeIndex), slideCount - 1);
+      function updateDots() {
+        if (!slider || dots.length === 0) return;
+        const scrollLeft = slider.scrollLeft;
+        const slideWidth = slider.offsetWidth;
+        const gap = 32;
+        const totalSlideWidth = slideWidth + gap;
+        const activeIndex = Math.round(scrollLeft / totalSlideWidth);
+        const index = Math.min(Math.max(0, activeIndex), slideCount - 1);
 
-          dots.forEach((dot, i) => {
-            if (i === index) {
-              dot.classList.remove("bg-gray-600");
-              dot.classList.add("bg-white");
-            } else {
-              dot.classList.remove("bg-white");
-              dot.classList.add("bg-gray-600");
-            }
-          });
-        }
-
-        function goToSlide(index: number) {
-          if (!slider || index < 0 || index >= slideCount) return;
-          const slideWidth = slider.offsetWidth;
-          const gap = 32;
-          slider.scrollTo({
-            left: index * (slideWidth + gap),
-            behavior: "smooth",
-          });
-        }
-
-        if (slider) {
-          slider.addEventListener("scroll", updateDots);
-          updateDots();
-        }
-
-        dots.forEach((dot) => {
-          dot.addEventListener("click", () => {
-            const index = parseInt(dot.getAttribute("data-index") ?? "0", 10);
-            goToSlide(index);
-          });
+        dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.classList.remove("bg-gray-600");
+            dot.classList.add("bg-white");
+          } else {
+            dot.classList.remove("bg-white");
+            dot.classList.add("bg-gray-600");
+          }
         });
-      })();
+      }
+
+      function goToSlide(index: number) {
+        if (!slider || index < 0 || index >= slideCount) return;
+        const slideWidth = slider.offsetWidth;
+        const gap = 32;
+        slider.scrollTo({
+          left: index * (slideWidth + gap),
+          behavior: "smooth",
+        });
+      }
+
+      if (slider) {
+        slider.addEventListener("scroll", updateDots);
+        updateDots();
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const index = parseInt(dot.getAttribute("data-index") ?? "0", 10);
+          goToSlide(index);
+        });
+      });
+    })();
   </script>
 </Layout>
