@@ -46,8 +46,7 @@ const { links } = Astro.props;
         <path d="m6 6 12 12" />
       </svg>
     </button>
-    <nav class="flex flex-col gap-2 pt-8" aria-labelledby="mobile-nav-heading">
-      <h2 id="mobile-nav-heading" class="sr-only">Mobile navigation</h2>
+    <nav class="flex flex-col gap-2 pt-8" aria-label="Mobile navigation">
       {
         links.map(({ href, label, ariaLabel, external, download }) => (
           <a

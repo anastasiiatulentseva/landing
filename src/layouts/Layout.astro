@@ -1,5 +1,6 @@
 ---
 import MobileMenu from "../components/MobileMenu.astro";
+import ConsentBanner from "../components/ConsentBanner.astro";
 import "../styles/global.css";
 
 interface NavLink {
@@ -49,14 +50,7 @@ const navLinks = navLinksProp ?? defaultNavLinks;
       rel="stylesheet"
     />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2MMJ3QV6N8"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2MMJ3QV6N8');
-    </script>
+    <!-- Google Analytics loaded only after consent (see ConsentBanner) -->
   </head>
 
   <body
@@ -165,6 +159,8 @@ const navLinks = navLinksProp ?? defaultNavLinks;
 
     <MobileMenu links={navLinks} />
 
+    <ConsentBanner />
+
     <div class="flex-1">
       <slot />
     </div>
@@ -214,7 +210,11 @@ const navLinks = navLinksProp ?? defaultNavLinks;
           </a>
         </div>
 
-        <div class="text-sm text-gray-400">© 2026 Anastasia Tulentseva.</div>
+        <div class="text-sm text-gray-400 flex items-center gap-2">
+          <a href="/privacy" class="hover:text-gold transition-colors">Privacy</a>
+          <span>·</span>
+          <span>© 2026 Anastasia Tulentseva.</span>
+        </div>
       </div>
     </footer>
 

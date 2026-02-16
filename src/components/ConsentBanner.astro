@@ -1,0 +1,106 @@
+---
+const STORAGE_KEY = "ga-consent";
+const GA_ID = "G-2MMJ3QV6N8";
+---
+
+<div
+  id="consent-banner"
+  class="fixed bottom-0 left-0 right-0 z-[120] px-6 py-3 bg-paper border-t border-gray-200/80 print:hidden"
+  role="dialog"
+  aria-label="Analytics consent"
+  aria-describedby="consent-description"
+  hidden
+>
+  <div
+    class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-start gap-3"
+  >
+    <p id="consent-description" class="text-sm text-gray-500">
+      I use cookies for analytics.
+      <a href="/privacy" class="text-gold hover:underline font-medium"
+        >Learn more</a
+      >. You can <button
+        type="button"
+        id="consent-accept"
+        class="text-gold hover:underline font-medium">Accept</button
+      >
+      <span class="text-gray-400"> or </span>
+      <button
+        type="button"
+        id="consent-decline"
+        class="text-gray-500 hover:underline">Decline</button
+      >
+    </p>
+  </div>
+</div>
+
+<script define:vars={{ STORAGE_KEY, GA_ID }}>
+  (function () {
+    const banner = document.getElementById("consent-banner");
+    const acceptBtn = document.getElementById("consent-accept");
+    const declineBtn = document.getElementById("consent-decline");
+
+    function loadGoogleAnalytics() {
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", GA_ID);
+    }
+
+    function hideBanner() {
+      if (banner) {
+        banner.hidden = true;
+      }
+    }
+
+    function accept() {
+      try {
+        localStorage.setItem(STORAGE_KEY, "accepted");
+      } catch (_) {}
+      loadGoogleAnalytics();
+      hideBanner();
+    }
+
+    function decline() {
+      try {
+        localStorage.setItem(STORAGE_KEY, "declined");
+      } catch (_) {}
+      hideBanner();
+    }
+
+    function init() {
+      try {
+        const consent = localStorage.getItem(STORAGE_KEY);
+        if (consent === "accepted") {
+          loadGoogleAnalytics();
+          return;
+        }
+        if (consent === "declined") {
+          return;
+        }
+        if (banner) {
+          banner.hidden = false;
+        }
+      } catch (_) {
+        if (banner) {
+          banner.hidden = false;
+        }
+      }
+    }
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", accept);
+    }
+    if (declineBtn) {
+      declineBtn.addEventListener("click", decline);
+    }
+
+    init();
+  })();
+</script>
