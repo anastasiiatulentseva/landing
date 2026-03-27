@@ -53,8 +53,12 @@ const { links } = Astro.props;
             href={href}
             class="mobile-nav-link py-4 text-lg font-medium text-charcoal hover:text-gold border-b border-gray-100 transition-colors"
             aria-label={ariaLabel ?? `Go to ${label} section`}
-            target={external ? "_blank" : undefined}
-            rel={external ? "noopener noreferrer" : undefined}
+            target={external && download === undefined ? "_blank" : undefined}
+            rel={
+              external && download === undefined
+                ? "noopener noreferrer"
+                : undefined
+            }
             download={download === true ? "" : (download || undefined)}
           >
             {label}

@@ -8,7 +8,10 @@ export default defineConfig({
   site: 'https://anastasia.tulentsev.com',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/cv/') && !page.includes('/404'),
+      filter: (page) =>
+        !page.includes('/404') &&
+        !page.includes('/cv/') &&
+        !page.includes('/cv-swe'),
     }),
   ],
   vite: {

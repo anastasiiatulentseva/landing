@@ -7,6 +7,7 @@ const title = "Anastasia Tulentseva - CV";
 const description =
   "CV / Résumé - Anastasia Tulentseva, Chief Technology Officer & Co-Founder";
 const websiteUrl = "https://anastasia.tulentsev.com";
+const ctoCvPdf = "/cv-cto.pdf";
 // Cache-bust for Telegram/other platforms that cache OG images aggressively
 const ogImage = `${new URL(profileOgImage.src, site).href}?v=2`;
 const ogImageWidth = String(profileOgImage.width);
@@ -19,11 +20,15 @@ const ogImageHeight = String(profileOgImage.height);
   noindex
   navLinks={[
     {
-      href: "/cv.pdf",
+      href: ctoCvPdf,
       label: "Download PDF",
       ariaLabel: "Download CV as PDF",
-      external: true,
-      download: "Anastasia_Tulentseva_CV.pdf",
+      download: "Anastasia Tulentseva - CTO - CV.pdf",
+    },
+    {
+      href: "/cv-swe",
+      label: "Software Engineer CV",
+      ariaLabel: "View software engineering CV",
     },
   ]}
 >
@@ -110,7 +115,7 @@ const ogImageHeight = String(profileOgImage.height);
                 Anastasia Tulentseva
               </h1>
               <h2
-                class="text-xl text-gray-400 font-medium tracking-wide print:text-lg"
+                class="text-xl text-gray-400 font-medium print:text-lg"
               >
                 Chief Technology Officer & Co-Founder
               </h2>
@@ -156,9 +161,9 @@ const ogImageHeight = String(profileOgImage.height);
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
                 <a
-                  href="mailto:anastasiia.tulentseva@gmail.com"
+                  href="mailto:anastasia@tulentsev.com"
                   class="hover:text-white transition-colors"
-                  >anastasiia.tulentseva@gmail.com</a
+                  >anastasia@tulentsev.com</a
                 >
               </div>
               <div class="flex items-center gap-2 print:justify-end">
@@ -288,7 +293,7 @@ const ogImageHeight = String(profileOgImage.height);
               Profile
             </h3>
             <p class="text-gray-700 text-sm print:leading-tight">
-              15+ years in technology. I convert high-level business
+              17+ years in technology. I convert high-level business
               requirements into functioning products through structured,
               low-stress team workflows. My approach focuses on lean development
               - controlling costs and removing operational friction for all team
@@ -524,7 +529,7 @@ const ogImageHeight = String(profileOgImage.height);
               <div
                 class="text-gray-700 font-semibold mb-1 flex items-center gap-1 text-sm"
               >
-                InStat Sport <span class="text-gray-400">|</span> Moscow, Russia
+                InStat Sport <span class="text-gray-400">|</span> Remote
               </div>
               <div class="text-xs text-gray-500 mb-1">
                 Sports performance analysis company. <span class="font-medium"
@@ -548,26 +553,42 @@ const ogImageHeight = String(profileOgImage.height);
             </div>
           </section>
 
-          <!-- Education & Skills Grid -->
           <div
             class="print-edu-skills-grid grid grid-cols-1 md:grid-cols-3 gap-8 break-inside-avoid print:gap-4 print:mt-2"
           >
-            <section class="print-education-col md:col-span-1">
-              <h3
-                class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-4 print:mb-2 print:text-base print:pb-1"
-              >
-                Education
-              </h3>
-              <div>
-                <h4 class="font-bold text-charcoal text-sm">Master's Degree</h4>
-                <div class="text-sm text-gray-700 font-medium">
-                  Computer Science
+            <div class="print-education-col md:col-span-1 space-y-8 print:space-y-6">
+              <section>
+                <h3
+                  class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-4 print:mb-2 print:text-base print:pb-1"
+                >
+                  Education
+                </h3>
+                <div>
+                  <h4 class="font-bold text-charcoal text-sm">Master's Degree</h4>
+                  <div class="text-sm text-gray-700 font-medium">
+                    Computer Science
+                  </div>
+                  <div class="text-xs text-gray-500 mt-1">
+                    Berdyansk University of Management and Business, Ukraine
+                  </div>
                 </div>
-                <div class="text-xs text-gray-500 mt-1">
-                  Berdyansk University of Management and Business, Ukraine
+              </section>
+              <section>
+                <h3
+                  class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-4 print:mb-2 print:text-base print:pb-1"
+                >
+                  Citizenship
+                </h3>
+                <div>
+                  <div class="text-sm text-gray-700 font-medium">
+                    Irish Citizen
+                  </div>
+                  <div class="text-xs text-gray-500 mt-1">
+                    EU Passport &amp; UK Right to Work
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            </div>
 
             <section class="print-skills-col md:col-span-2">
               <h3
@@ -578,40 +599,44 @@ const ogImageHeight = String(profileOgImage.height);
               <div class="space-y-3 print:space-y-2">
                 <div>
                   <h4
-                    class="text-sm font-bold text-charcoal uppercase tracking-wide mb-0.5"
+                    class="text-sm font-bold text-charcoal mb-0.5"
                   >
                     Strategic Leadership
                   </h4>
-                  <p class="text-sm text-gray-700 leading-snug">
-                    Product Strategy, AI/ML Strategy, Roadmap Planning, Investor
-                    Relations, Technical Due Diligence, Vendor Negotiation,
-                    Budget Forecasting & Cost Control, GDPR Compliance.
+                  <p class="text-xs text-gray-700 leading-snug">
+                    <span class="font-semibold text-gray-600">Strategy:</span> Product
+                    Strategy, AI/ML Strategy, Roadmap Planning, Technical Due Diligence.<br
+                    />
+                    <span class="font-semibold text-gray-600">Commercial:</span> Investor
+                    Relations, Vendor Negotiation, Budget Forecasting &amp; Cost Control,
+                    GDPR Compliance.
                   </p>
                 </div>
                 <div>
                   <h4
-                    class="text-sm font-bold text-charcoal uppercase tracking-wide mb-0.5"
+                    class="text-sm font-bold text-charcoal mb-0.5"
                   >
                     Engineering Management
                   </h4>
-                  <p class="text-sm text-gray-700 leading-snug">
-                    Agile & Scrum, Story Mapping, Technical Hiring & Team
-                    Culture, CI/CD Strategy, SDLC Optimization, Incident
-                    Management.
+                  <p class="text-xs text-gray-700 leading-snug">
+                    <span class="font-semibold text-gray-600">Delivery:</span> Agile
+                    &amp; Scrum, Story Mapping, SDLC Optimisation, CI/CD Strategy,
+                    Incident Management.<br />
+                    <span class="font-semibold text-gray-600">People:</span> Technical
+                    Hiring, Team Culture &amp; Mentorship, Cross-Functional Collaboration.
                   </p>
                 </div>
                 <div>
                   <h4
-                    class="text-sm font-bold text-charcoal uppercase tracking-wide mb-0.5"
+                    class="text-sm font-bold text-charcoal mb-0.5"
                   >
                     Technical Architecture
                   </h4>
-                  <p class="text-sm text-gray-700 leading-snug">
+                  <p class="text-xs text-gray-700 leading-snug">
                     <span class="font-semibold text-gray-600">Core:</span> Ruby on
-                    Rails, Node.js, React.js, Vue.js, TypeScript, REST API.<br
+                    Rails, Next.js, React.js, Node.js, Vue.js, TypeScript, REST API.<br
                     />
-                    <span class="font-semibold text-gray-600"
-                      >Infra & Data:</span
+                    <span class="font-semibold text-gray-600">Infra &amp; Data:</span
                     > AWS, Azure, PostgreSQL, MySQL, Docker, Playwright, Vitest.<br
                     />
                     <span class="font-semibold text-gray-600">Tools:</span> Jira,

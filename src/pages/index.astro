@@ -5,13 +5,17 @@ import profileImage from "../assets/profile.jpg";
 import profileOgImage from "../assets/profile-og.png";
 
 const site = import.meta.env.SITE;
-const title = "Anastasia Tulentseva | CTO";
+const title = "Anastasia Tulentseva | Senior Software Engineer & CTO";
 const description =
-  "Creating technical clarity. Delivering solutions that stick.";
+  "Personal website of Anastasia Tulentseva, senior software engineer & CTO. Creating technical clarity. Delivering solutions that stick.";
 // Cache-bust for Telegram/other platforms that cache OG images aggressively
 const ogImage = `${new URL(profileOgImage.src, site).href}?v=2`;
 const ogImageWidth = String(profileOgImage.width);
 const ogImageHeight = String(profileOgImage.height);
+const sweCvPdf = "/cv-swe.pdf";
+const ctoCvPdf = "/cv-cto.pdf";
+const sweCvDownloadName = "Anastasia Tulentseva - SWE - CV.pdf";
+const ctoCvDownloadName = "Anastasia Tulentseva - CTO - CV.pdf";
 ---
 
 <Layout
@@ -51,7 +55,7 @@ const ogImageHeight = String(profileOgImage.height);
           <div
             class="inline-block px-3 py-1 mb-8 text-xs font-bold tracking-widest uppercase text-gold border border-gold/20 rounded-full"
           >
-            Chief Technology Officer
+            Engineer · Tech Lead · CTO
           </div>
 
           <h1
@@ -66,19 +70,19 @@ const ogImageHeight = String(profileOgImage.height);
           <p
             class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed mb-10 mx-auto md:mx-0"
           >
-            I translate early adopter insights into clear technical roadmaps,
-            making the journey straightforward, transparent, and stress-free. My
-            leadership centers on purposeful collaboration - aligning teams to
-            build software that is genuinely valued.
+            I translate early adopter insights into clear technical roadmaps
+            and build the systems behind them — making the journey from idea to
+            production straightforward, transparent, and stress-free. My work
+            centers on purposeful collaboration, aligning teams to deliver
+            software that is genuinely valued.
           </p>
 
           <div
             class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
           >
             <a
-              href="/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={sweCvPdf}
+              download={sweCvDownloadName}
               class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-charcoal bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm group"
             >
               <svg
@@ -164,8 +168,7 @@ const ogImageHeight = String(profileOgImage.height);
             Core Competencies
           </h2>
           <p class="text-gray-500 max-w-md text-right hidden md:block">
-            Bridging the gap between commercial strategy and engineering
-            execution.
+            From writing production code to shaping technical strategy.
           </p>
         </div>
 
@@ -187,19 +190,19 @@ const ogImageHeight = String(profileOgImage.height);
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                <polyline points="4 17 10 11 14 15 21 8"></polyline>
+                <line x1="21" y1="8" x2="21" y2="21"></line>
+                <line x1="21" y1="21" x2="3" y2="21"></line>
+                <line x1="3" y1="21" x2="3" y2="10"></line>
               </svg>
             </div>
             <h3 class="font-serif text-2xl mb-4 text-charcoal">
-              Strategic Leadership
+              System Architecture
             </h3>
             <p class="text-gray-600 leading-relaxed">
-              Product Strategy, Purposeful Collaboration, and Aligning Vision.
-              Technical due diligence, financial modeling, and vendor
-              negotiation.
+              Scalable full-stack systems (Rails, Node, React). Practical
+              experience with cloud environments (AWS/Azure) and ensuring
+              stability.
             </p>
           </div>
 
@@ -250,19 +253,19 @@ const ogImageHeight = String(profileOgImage.height);
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <polyline points="4 17 10 11 14 15 21 8"></polyline>
-                <line x1="21" y1="8" x2="21" y2="21"></line>
-                <line x1="21" y1="21" x2="3" y2="21"></line>
-                <line x1="3" y1="21" x2="3" y2="10"></line>
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
             </div>
             <h3 class="font-serif text-2xl mb-4 text-charcoal">
-              System Architecture
+              Strategic Leadership
             </h3>
             <p class="text-gray-600 leading-relaxed">
-              Scalable full-stack systems (Rails, Node, React). Practical
-              experience with cloud environments (AWS/Azure) and ensuring
-              stability.
+              Product Strategy, Purposeful Collaboration, and Aligning Vision.
+              Technical due diligence, financial modeling, and vendor
+              negotiation.
             </p>
           </div>
         </div>
@@ -310,30 +313,30 @@ const ogImageHeight = String(profileOgImage.height);
                 <span
                   class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
                 ></span>
-                Co-developed product strategy, translating vision into a grounded
-                6-month execution plan and 24-month roadmap.
+                Architected and built the unified web platform from scratch using
+                Next.js, React, and TypeScript — enabling investor demos and early
+                pilot acquisition.
               </li>
               <li class="flex items-start gap-3 text-sm text-gray-600">
                 <span
                   class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
                 ></span>
-                Established a structured product delivery lifecycle, implementing
-                workflows that synchronized execution across ML, Mobile, and Backend
-                streams.
+                Led a cross-functional squad of 5 through a synchronised multi-platform
+                launch, overseeing the iOS app's first public release on the App Store.
               </li>
               <li class="flex items-start gap-3 text-sm text-gray-600">
                 <span
                   class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
                 ></span>
-                Empowered engineering to transform legacy codebase into a scalable
-                platform, projecting a 60% reduction in scaling costs.
+                Managed platform migration from Azure to AWS, then drove fleet
+                optimisation that reduced monthly operational costs by 30%.
               </li>
               <li class="flex items-start gap-3 text-sm text-gray-600">
                 <span
                   class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
                 ></span>
-                Secured cloud infrastructure grants and contributed to recognition
-                as Finalist in National Startup Awards.
+                Finalist in National Startup Awards. Represented technical organisation
+                at Web Summit and secured cloud infrastructure grants to maximise runway.
               </li>
             </ul>
           </div>
@@ -368,15 +371,23 @@ const ogImageHeight = String(profileOgImage.height);
                 <span
                   class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
                 ></span>
-                Championed internal tooling improvements for Sales/CS teams, increasing
-                workflow speed and morale.
+                Engineered data-intensive reporting pages and optimised Rails API
+                retrieval times by restructuring database queries and eliminating
+                N+1 bottlenecks.
               </li>
               <li class="flex items-start gap-3 text-sm text-gray-600">
                 <span
                   class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
                 ></span>
-                Deepened Agile expertise, participating in story mapping and roadmap
-                planning to align engineering outputs with business goals.
+                Extended Active Admin with modern dashboards and actions, and refactored
+                legacy pages to tailor for established workflows.
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
+                ></span>
+                Took end-to-end ownership of customer-facing features, collaborating
+                with Head of Product to align UX/UI improvements with business goals.
               </li>
             </ul>
           </div>
@@ -424,6 +435,14 @@ const ogImageHeight = String(profileOgImage.height);
                 Ensured a flawless launch with zero significant bugs in production.
                 Managed post-launch stabilization and coordinated troubleshooting
                 with the partner engineering team.
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span
+                  class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"
+                ></span>
+                Safely extended the complex electricity pricing engine to incorporate
+                new smart meter tariffs, ensuring strict mathematical accuracy for
+                supplier comparisons without breaking legacy calculations.
               </li>
             </ul>
           </div>
@@ -534,6 +553,136 @@ const ogImageHeight = String(profileOgImage.height);
             aria-label="Go to slide 3"
             class="testimonial-dot w-2 h-2 rounded-full bg-gray-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-charcoal"
             data-index="2"></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv" class="w-full py-20 px-6 bg-white border-t border-gray-100">
+      <div class="w-full max-w-4xl mx-auto min-w-0">
+        <h2
+          class="font-serif text-4xl text-charcoal mb-12 text-center md:text-left"
+        >
+          Résumé
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="overflow-hidden border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+          >
+            <div class="h-1 bg-gold"></div>
+            <div class="p-8">
+              <h3 class="font-serif text-2xl text-charcoal mb-2">
+                Software Engineer
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                Hands-on engineering, system architecture, and delivery.
+              </p>
+              <div class="flex items-center gap-6">
+                <a
+                  href="/cv-swe"
+                  class="inline-flex items-center gap-1.5 text-sm font-medium text-charcoal hover:text-gold transition-colors"
+                >
+                  View online
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </a>
+                <a
+                  href={sweCvPdf}
+                  download={sweCvDownloadName}
+                  class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-charcoal transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                    ></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" x2="12" y1="15" y2="3"></line>
+                  </svg>
+                  PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="overflow-hidden border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+          >
+            <div class="h-1"></div>
+            <div class="p-8">
+              <h3 class="font-serif text-2xl text-charcoal mb-2">
+                Leadership
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                Technical strategy, team building, and product ownership.
+              </p>
+              <div class="flex items-center gap-6">
+                <a
+                  href="/cv"
+                  class="inline-flex items-center gap-1.5 text-sm font-medium text-charcoal hover:text-gold transition-colors"
+                >
+                  View online
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </a>
+                <a
+                  href={ctoCvPdf}
+                  download={ctoCvDownloadName}
+                  class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-charcoal transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                    ></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" x2="12" y1="15" y2="3"></line>
+                  </svg>
+                  PDF
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
