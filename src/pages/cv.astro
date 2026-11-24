@@ -6,7 +6,7 @@ const site = import.meta.env.SITE;
 const title = "Anastasia Tulentseva - CV";
 const description =
   "CV / Résumé - Anastasia Tulentseva, Chief Technology Officer & Co-Founder";
-const websiteUrl = "https://anastasia.tulentsev.com";
+const websiteUrl = new URL("/", site).href;
 const ctoCvPdf = "/cv-cto.pdf";
 // Cache-bust for Telegram/other platforms that cache OG images aggressively
 const ogImage = `${new URL(profileOgImage.src, site).href}?v=2`;
@@ -26,7 +26,7 @@ const ogImageHeight = String(profileOgImage.height);
       download: "Anastasia Tulentseva - CTO - CV.pdf",
     },
     {
-      href: "/cv-swe",
+      href: "/cv-swe/",
       label: "Software Engineer CV",
       ariaLabel: "View software engineering CV",
     },

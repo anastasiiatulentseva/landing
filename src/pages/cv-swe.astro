@@ -6,7 +6,7 @@ const site = import.meta.env.SITE;
 const title = "Anastasia Tulentseva - Senior Software Engineer CV";
 const description =
   "CV / Résumé - Anastasia Tulentseva, Senior Software Engineer & Tech Lead";
-const websiteUrl = "https://anastasia.tulentsev.com";
+const websiteUrl = new URL("/", site).href;
 const sweCvPdf = "/cv-swe.pdf";
 const ogImage = `${new URL(profileOgImage.src, site).href}?v=2`;
 const ogImageWidth = String(profileOgImage.width);
@@ -25,7 +25,7 @@ const ogImageHeight = String(profileOgImage.height);
       download: "Anastasia Tulentseva - SWE - CV.pdf",
     },
     {
-      href: "/cv",
+      href: "/cv/",
       label: "Leadership CV",
       ariaLabel: "View leadership CV",
     },

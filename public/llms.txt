@@ -4,6 +4,8 @@
 
 Her work spans full-stack system architecture, engineering management, and technical strategy.
 
+Also known as: Anastasiia Tulentseva
+
 ## Website and CVs
 
 - [Homepage](https://anastasia.tulentsev.com/)
@@ -11,3 +13,9 @@ Her work spans full-stack system architecture, engineering management, and techn
 - [Leadership CV (PDF)](https://anastasia.tulentsev.com/cv-cto.pdf)
 - [Software Engineer CV](https://anastasia.tulentsev.com/cv-swe/)
 - [Software Engineer CV (PDF)](https://anastasia.tulentsev.com/cv-swe.pdf)
+
+## Contact and profiles
+
+- Email: anastasia@tulentsev.com
+- [LinkedIn](https://www.linkedin.com/in/atulentseva/)
+- [GitHub](https://github.com/anastasiiatulentseva)

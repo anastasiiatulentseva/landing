@@ -468,9 +468,10 @@ const ctoCvDownloadName = "Anastasia Tulentseva - CTO - CV.pdf";
 
     <section
       id="testimonials"
+      aria-labelledby="testimonials-heading"
       class="w-full py-24 bg-charcoal text-white overflow-hidden"
     >
-      <h2 class="sr-only">Testimonials</h2>
+      <h2 id="testimonials-heading" class="sr-only">Testimonials</h2>
       <div class="w-full max-w-4xl mx-auto px-6 relative min-w-0">
         <div class="text-center mb-12">
           <svg
@@ -558,6 +559,7 @@ const ctoCvDownloadName = "Anastasia Tulentseva - CTO - CV.pdf";
           <button
             type="button"
             aria-label="Go to slide 1"
+            aria-current="true"
             class="testimonial-dot w-2 h-2 rounded-full bg-white transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-charcoal"
             data-index="0"></button>
           <button
@@ -596,7 +598,7 @@ const ctoCvDownloadName = "Anastasia Tulentseva - CTO - CV.pdf";
               </p>
               <div class="flex items-center gap-6">
                 <a
-                  href="/cv-swe"
+                  href="/cv-swe/"
                   class="inline-flex items-center gap-1.5 text-sm font-medium text-charcoal hover:text-gold transition-colors"
                 >
                   View online
@@ -655,7 +657,7 @@ const ctoCvDownloadName = "Anastasia Tulentseva - CTO - CV.pdf";
               </p>
               <div class="flex items-center gap-6">
                 <a
-                  href="/cv"
+                  href="/cv/"
                   class="inline-flex items-center gap-1.5 text-sm font-medium text-charcoal hover:text-gold transition-colors"
                 >
                   View online
@@ -723,9 +725,11 @@ const ctoCvDownloadName = "Anastasia Tulentseva - CTO - CV.pdf";
 
         dots.forEach((dot, i) => {
           if (i === index) {
+            dot.setAttribute("aria-current", "true");
             dot.classList.remove("bg-gray-600");
             dot.classList.add("bg-white");
           } else {
+            dot.removeAttribute("aria-current");
             dot.classList.remove("bg-white");
             dot.classList.add("bg-gray-600");
           }
