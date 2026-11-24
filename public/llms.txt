@@ -1,0 +1,13 @@
+# Anastasia Tulentseva
+
+> Anastasia Tulentseva is a senior software engineer and CTO. She is CTO and co-founder of Anato, a food startup that analyses bread crumb structure for the baking industry.
+
+Her work spans full-stack system architecture, engineering management, and technical strategy.
+
+## Website and CVs
+
+- [Homepage](https://anastasia.tulentsev.com/)
+- [Leadership CV](https://anastasia.tulentsev.com/cv/)
+- [Leadership CV (PDF)](https://anastasia.tulentsev.com/cv-cto.pdf)
+- [Software Engineer CV](https://anastasia.tulentsev.com/cv-swe/)
+- [Software Engineer CV (PDF)](https://anastasia.tulentsev.com/cv-swe.pdf)
