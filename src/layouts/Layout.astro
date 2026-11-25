@@ -36,6 +36,11 @@ const defaultNavLinks: NavLink[] = [
     ariaLabel: "Go to Expertise section",
   },
   {
+    href: "/#approach",
+    label: "Approach",
+    ariaLabel: "Go to Approach section",
+  },
+  {
     href: "/#experience",
     label: "Track Record",
     ariaLabel: "Go to Track Record section",
@@ -91,17 +96,24 @@ const canonicalURL = new URL(canonicalPath, Astro.site);
     <nav
       class="sticky top-0 z-[110] w-full bg-paper/90 backdrop-blur-sm border-b border-gray-200/50 transition-all duration-300 print:hidden"
     >
-      <div
-        class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center"
-      >
+      <div class:list={[
+        "max-w-6xl mx-auto px-6 h-20 flex justify-between items-center",
+        !navLinksProp && "md:max-lg:px-4",
+      ]}>
         <a
           href="/"
-          class="font-serif text-2xl font-bold tracking-tight hover:text-gold transition-colors"
+          class:list={[
+            "font-serif text-2xl font-bold tracking-tight hover:text-gold transition-colors",
+            !navLinksProp && "md:whitespace-nowrap",
+          ]}
         >
           {headerName}<span class="text-gold">.</span>
         </a>
 
-        <div class="hidden md:flex gap-8 text-sm font-medium text-gray-500">
+        <div class:list={[
+          "hidden md:flex text-sm font-medium text-gray-500",
+          navLinksProp ? "gap-8" : "gap-3 whitespace-nowrap lg:gap-8",
+        ]}>
           {
             navLinks.map(({ href, label, ariaLabel, external, download }) => (
               <a
@@ -188,7 +200,10 @@ const canonicalURL = new URL(canonicalPath, Astro.site);
 
           <a
             href="mailto:anastasia@tulentsev.com"
-            class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-charcoal rounded-md hover:bg-gray-800 transition-all shadow-sm"
+            class:list={[
+              "hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-charcoal rounded-md hover:bg-gray-800 transition-all shadow-sm",
+              !navLinksProp && "whitespace-nowrap md:max-lg:px-4",
+            ]}
           >
             Get in Touch
           </a>

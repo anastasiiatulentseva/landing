@@ -1,0 +1,323 @@
+---
+const steps = [
+  {
+    phase: "Discovery",
+    short: "Start with users",
+    title: "Start with the business and its users",
+    body: "I ask questions to understand how people will actually use the product and what the business wants to achieve, shaping requirements around real needs rather than assumptions.",
+    icon: "M17 20h5v-1a4 4 0 00-5.356-3.774M17 20H7m10 0v-1c0-.656-.126-1.283-.356-1.857M7 20H2v-1a4 4 0 015.356-3.774M7 20v-1c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
+  },
+  {
+    phase: "Scoping",
+    short: "Simplest path",
+    title: "Find the simplest path to value",
+    body: "I explore technical feasibility, challenge unnecessary complexity and explain trade-offs to business stakeholders, finding a practical balance between ambition and engineering effort.",
+    icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7",
+  },
+  {
+    phase: "Planning",
+    short: "Executable plan",
+    title: "Build an executable plan",
+    body: "I shape delivery plans with engineers, not for them, building on individual strengths to create a clear, achievable path forward.",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
+  },
+  {
+    phase: "Execution",
+    short: "Keep moving",
+    title: "Keep delivery moving",
+    body: "I give engineers autonomy while keeping progress visible to the business through regular check-ins, incremental releases and demos.",
+    icon: "M13 5l7 7-7 7M5 5l7 7-7 7",
+  },
+  {
+    phase: "Quality",
+    short: "Release safely",
+    title: "Release with confidence",
+    body: "I encourage engineers to own quality, using technical reviews, real-world user flows and AI-powered automation to validate releases without adding unnecessary manual overhead.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+  },
+  {
+    phase: "Iteration",
+    short: "Feedback loop",
+    title: "Close the feedback loop",
+    body: "Shipping isn’t the finish line. I bring customer feedback and business outcomes back to the team, so they see the impact of their work and it shapes what we fix and build next.",
+    icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+  },
+];
+---
+
+<section id="approach" aria-labelledby="approach-heading" class="w-full py-24 px-6">
+  <div class="mx-auto w-full min-w-0 max-w-5xl">
+    <div class="mb-16 flex items-end justify-between gap-4">
+      <h2 id="approach-heading" class="font-serif text-4xl">How I Deliver</h2>
+      <p class="step-secondary hidden max-w-md text-right md:block">
+        Repeatable by design, flexible in practice
+      </p>
+    </div>
+
+    <div class="step-rail mb-8 sm:mb-14" data-step-rail role="group" aria-label="Delivery steps">
+      {steps.map((step, index) => (
+        <button
+          type="button"
+          class="step-node"
+          data-step-node
+          aria-label={`${step.short}, step ${index + 1} of ${steps.length}: ${step.phase}`}
+          aria-current={index === 0 ? "step" : undefined}
+        >
+          <span class="step-icon">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d={step.icon} />
+            </svg>
+          </span>
+        </button>
+      ))}
+    </div>
+
+    <div class="max-w-[38rem]">
+      <div class="step-panels" data-step-panels>
+        {steps.map((step, index) => (
+          <article class="step-content" data-step-content data-initial={index === 0 || undefined}>
+            <p class="step-phase mb-2">
+              {String(index + 1).padStart(2, "0")} · {step.phase}
+            </p>
+            <h3 class="mb-4 font-serif text-3xl">{step.title}</h3>
+            <p class="step-secondary text-lg leading-relaxed md:text-xl">
+              {step.body}
+            </p>
+          </article>
+        ))}
+        <div class="step-live" data-step-live aria-live="polite" aria-atomic="true"></div>
+      </div>
+
+      <div class="step-controls mt-6 flex items-center gap-4">
+        <button type="button" data-step-prev>← Prev</button>
+        <button type="button" data-step-next>Next →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #approach {
+    --approach-ink: var(--color-white);
+    --approach-page: var(--color-charcoal);
+    --approach-surface: var(--color-gray-900);
+    /* The site accent is too dark for small text on charcoal. */
+    --approach-accent-text: #d38052;
+    --approach-secondary: var(--color-gray-300);
+    --approach-muted: var(--color-gray-400);
+    --approach-border: var(--color-gray-600);
+    --approach-divider: var(--color-gray-700);
+
+    background: var(--approach-page);
+    color: var(--approach-ink);
+    border-bottom: 1px solid var(--approach-divider);
+  }
+
+  .step-secondary {
+    color: var(--approach-secondary);
+  }
+
+  .step-phase,
+  .step-controls button {
+    color: var(--approach-accent-text);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    line-height: var(--text-sm--line-height);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .step-rail {
+    --step-progress: 0;
+    --step-node-size: 44px;
+
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .step-rail::before,
+  .step-rail::after {
+    position: absolute;
+    /* Connect the centers of the two outer nodes. */
+    inset: 50% calc(var(--step-node-size) / 2) auto;
+    height: 1px;
+    background: var(--approach-border);
+    content: "";
+    pointer-events: none;
+  }
+
+  .step-rail::after {
+    right: auto;
+    width: calc((100% - var(--step-node-size)) * var(--step-progress));
+    background: var(--color-gold);
+    transition: width 300ms ease;
+  }
+
+  .step-node {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+    min-width: var(--step-node-size);
+    min-height: var(--step-node-size);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .step-icon {
+    display: grid;
+    place-items: center;
+    width: var(--step-node-size);
+    height: var(--step-node-size);
+    border: 1px solid var(--approach-muted);
+    border-radius: 50%;
+    background: var(--approach-surface);
+    color: var(--approach-muted);
+    transition-property: background-color, border-color, color;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .step-node:is(:hover, :focus-visible) .step-icon {
+    color: var(--approach-ink);
+    border-color: var(--approach-ink);
+  }
+
+  .step-node:has(~ .step-node[aria-current="step"]) .step-icon {
+    background: color-mix(in srgb, var(--color-gold) 20%, var(--approach-surface));
+    border-color: var(--color-gold);
+  }
+
+  .step-node[aria-current="step"] .step-icon {
+    color: var(--color-white);
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+  }
+
+  /* The tallest step keeps the controls in place as the active step changes. */
+  .step-panels {
+    display: grid;
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .step-panels > * {
+    grid-area: 1 / 1;
+  }
+
+  .step-panels > .step-content:not([data-initial]) {
+    visibility: hidden;
+  }
+
+  .step-controls [data-step-prev] {
+    color: var(--approach-secondary);
+    padding-inline-start: 0;
+    text-align: start;
+  }
+
+  .step-controls button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+
+  #approach button:focus-visible {
+    outline-color: var(--approach-ink);
+    box-shadow: 0 0 0 2px var(--approach-page);
+  }
+
+  @media (scripting: none) {
+    .step-rail,
+    .step-controls {
+      display: none;
+    }
+
+    .step-panels {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .step-panels > .step-content:not([data-initial]) {
+      visibility: visible;
+    }
+
+    .step-live {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const approach = document.getElementById("approach");
+  if (approach) {
+    const rail = approach.querySelector<HTMLElement>("[data-step-rail]");
+    const panels = approach.querySelector<HTMLElement>("[data-step-panels]");
+    const live = approach.querySelector<HTMLElement>("[data-step-live]");
+    const prev = approach.querySelector<HTMLButtonElement>("[data-step-prev]");
+    const next = approach.querySelector<HTMLButtonElement>("[data-step-next]");
+    const nodes = [...approach.querySelectorAll<HTMLButtonElement>("[data-step-node]")];
+    const steps = [...approach.querySelectorAll<HTMLElement>("[data-step-content]")];
+
+    if (rail && panels && live && prev && next && steps.length > 1) {
+      let activeIndex = 0;
+      live.append(steps[0]);
+      steps[0].removeAttribute("data-initial");
+
+      const showStep = (index: number) => {
+        const newIndex = (index + steps.length) % steps.length;
+        if (newIndex === activeIndex) return;
+
+        panels.append(steps[activeIndex]);
+        live.append(steps[newIndex]);
+        nodes[activeIndex].removeAttribute("aria-current");
+        nodes[newIndex].setAttribute("aria-current", "step");
+        rail.style.setProperty("--step-progress", String(newIndex / (steps.length - 1)));
+        next.textContent = newIndex === steps.length - 1 ? "Next cycle ↺" : "Next →";
+        activeIndex = newIndex;
+      };
+
+      nodes.forEach((node, index) => node.addEventListener("click", () => showStep(index)));
+      prev.addEventListener("click", () => showStep(activeIndex - 1));
+      next.addEventListener("click", () => showStep(activeIndex + 1));
+      approach.addEventListener("keydown", (event) => {
+        if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+        event.preventDefault();
+        showStep(activeIndex + (event.key === "ArrowRight" ? 1 : -1));
+      });
+
+      let swipeStart: { id: number; x: number; y: number } | undefined;
+      panels.addEventListener("pointerdown", (event) => {
+        if (event.pointerType !== "touch" || !event.isPrimary) return;
+
+        swipeStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      });
+      panels.addEventListener("pointercancel", () => {
+        swipeStart = undefined;
+      });
+      panels.addEventListener("pointerup", (event) => {
+        if (swipeStart?.id !== event.pointerId) return;
+
+        const horizontal = event.clientX - swipeStart.x;
+        const vertical = event.clientY - swipeStart.y;
+        swipeStart = undefined;
+        if (Math.abs(horizontal) > 45 && Math.abs(horizontal) > Math.abs(vertical)) {
+          showStep(activeIndex + (horizontal < 0 ? 1 : -1));
+        }
+      });
+    }
+  }
+</script>
