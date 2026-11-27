@@ -89,7 +89,7 @@ const steps = [
             <p class="step-phase mb-2">
               {String(index + 1).padStart(2, "0")} · {step.phase}
             </p>
-            <h3 class="mb-4 font-serif text-3xl">{step.title}</h3>
+            <h3 class="mb-4 font-serif text-3xl" aria-label={step.title}>{step.title}</h3>
             <p class="step-secondary text-lg leading-relaxed md:text-xl">
               {step.body}
             </p>
@@ -98,9 +98,20 @@ const steps = [
         <div class="step-live" data-step-live aria-live="polite" aria-atomic="true"></div>
       </div>
 
-      <div class="step-controls mt-6 flex items-center gap-4">
-        <button type="button" data-step-prev>← Prev</button>
-        <button type="button" data-step-next>Next →</button>
+      <div class="step-controls mt-6 flex items-center gap-3">
+        <button type="button" data-step-prev>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 8H3m0 0l3.5-3.5M3 8l3.5 3.5" />
+          </svg>
+          Prev
+        </button>
+        <button type="button" data-step-next>
+          <span data-step-next-label>Next</span>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path class="step-next-arrow" stroke-linecap="round" stroke-linejoin="round" d="M3 8h10m0 0L9.5 4.5M13 8l-3.5 3.5" />
+            <path class="step-cycle-arrow" stroke-linecap="round" stroke-linejoin="round" d="M12.5 5.5A5.25 5.25 0 1013.25 8m0-3.25v2.75h-2.75" />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -218,18 +229,51 @@ const steps = [
     visibility: hidden;
   }
 
-  .step-controls [data-step-prev] {
-    color: var(--approach-secondary);
-    padding-inline-start: 0;
-    text-align: start;
-  }
-
   .step-controls button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
     min-width: 44px;
     min-height: 44px;
-    padding: 0 0.5rem;
-    border-radius: 0.375rem;
+    padding: 0 0.9rem;
+    border: 1px solid;
+    border-radius: 9999px;
     cursor: pointer;
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+  }
+
+  .step-controls svg {
+    width: 0.9rem;
+    height: 0.9rem;
+    flex: none;
+  }
+
+  .step-controls [data-step-prev] {
+    color: var(--approach-muted);
+    border-color: color-mix(in srgb, var(--approach-ink) 11%, transparent);
+  }
+
+  .step-controls [data-step-prev]:is(:hover, :focus-visible) {
+    color: var(--approach-secondary);
+    border-color: color-mix(in srgb, var(--approach-ink) 24%, transparent);
+    background-color: color-mix(in srgb, var(--approach-ink) 3%, transparent);
+  }
+
+  .step-controls [data-step-next] {
+    border-color: color-mix(in srgb, var(--approach-accent-text) 28%, transparent);
+    background-color: color-mix(in srgb, var(--color-gold) 8%, var(--approach-page));
+  }
+
+  .step-controls [data-step-next]:is(:hover, :focus-visible) {
+    color: var(--approach-ink);
+    border-color: var(--color-gold);
+    background-color: var(--color-gold);
+  }
+
+  [data-step-next]:not([data-cycle]) .step-cycle-arrow,
+  [data-step-next][data-cycle] .step-next-arrow {
+    display: none;
   }
 
   #approach button:focus-visible {
@@ -267,10 +311,11 @@ const steps = [
     const live = approach.querySelector<HTMLElement>("[data-step-live]");
     const prev = approach.querySelector<HTMLButtonElement>("[data-step-prev]");
     const next = approach.querySelector<HTMLButtonElement>("[data-step-next]");
+    const nextLabel = next?.querySelector("[data-step-next-label]");
     const nodes = [...approach.querySelectorAll<HTMLButtonElement>("[data-step-node]")];
     const steps = [...approach.querySelectorAll<HTMLElement>("[data-step-content]")];
 
-    if (rail && panels && live && prev && next && steps.length > 1) {
+    if (rail && panels && live && prev && next && nextLabel && steps.length > 1) {
       let activeIndex = 0;
       live.append(steps[0]);
       steps[0].removeAttribute("data-initial");
@@ -284,7 +329,9 @@ const steps = [
         nodes[activeIndex].removeAttribute("aria-current");
         nodes[newIndex].setAttribute("aria-current", "step");
         rail.style.setProperty("--step-progress", String(newIndex / (steps.length - 1)));
-        next.textContent = newIndex === steps.length - 1 ? "Next cycle ↺" : "Next →";
+        const isLastStep = newIndex === steps.length - 1;
+        nextLabel.textContent = isLastStep ? "Next cycle" : "Next";
+        next.toggleAttribute("data-cycle", isLastStep);
         activeIndex = newIndex;
       };
 
