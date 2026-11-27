@@ -13,6 +13,14 @@ import Layout from "../layouts/Layout.astro";
     { href: "/#testimonials", label: "Testimonials", ariaLabel: "Go to Testimonials section" },
   ]}
 >
+  <Fragment slot="head">
+    <script is:inline>
+      // GitHub Pages serves this 404 document for the retired PDF URLs.
+      if (["/cv-cto.pdf", "/cv-swe.pdf"].includes(window.location.pathname)) {
+        window.location.replace("/cv-delivery.pdf" + window.location.hash);
+      }
+    </script>
+  </Fragment>
   <main class="flex-1 flex flex-col items-center justify-center px-6 py-24">
     <div class="max-w-xl mx-auto text-center">
       <!-- Wayfinder -->

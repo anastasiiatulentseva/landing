@@ -9,10 +9,8 @@ Also known as: Anastasiia Tulentseva
 ## Website and CVs
 
 - [Homepage](https://anastasia.tulentsev.com/)
-- [Leadership CV](https://anastasia.tulentsev.com/cv/)
-- [Leadership CV (PDF)](https://anastasia.tulentsev.com/cv-cto.pdf)
-- [Software Engineer CV](https://anastasia.tulentsev.com/cv-swe/)
-- [Software Engineer CV (PDF)](https://anastasia.tulentsev.com/cv-swe.pdf)
+- [Technical Delivery CV](https://anastasia.tulentsev.com/cv-delivery/)
+- [Technical Delivery CV (PDF)](https://anastasia.tulentsev.com/cv-delivery.pdf)
 
 ## Contact and profiles
 

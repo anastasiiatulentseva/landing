@@ -4,16 +4,19 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { copyFile } from 'node:fs/promises';
 
-const sitemapPaths = new Set(['/', '/cv/', '/cv-swe/', '/privacy/']);
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://anastasia.tulentsev.com',
   trailingSlash: 'always',
   build: { format: 'directory' },
+  redirects: {
+    '/cv': '/cv-delivery/',
+    '/cv-swe': '/cv-delivery/',
+    '/cv-cto': '/cv-delivery/',
+  },
   integrations: [
     sitemap({
-      filter: (page) => sitemapPaths.has(new URL(page).pathname),
+      filter: (page) => new URL(page).pathname === '/',
     }),
     {
       name: 'sitemap-alias',

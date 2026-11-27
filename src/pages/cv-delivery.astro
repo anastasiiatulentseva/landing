@@ -1,0 +1,550 @@
+---
+import Layout from "../layouts/Layout.astro";
+import profileOgImage from "../assets/profile-og.png";
+
+const site = import.meta.env.SITE;
+const name = "Anastasia Tulentseva";
+const headline = "Technical Delivery Lead";
+const title = `${name} - Technical Delivery CV`;
+const description = `${name} — ${headline}`;
+const websiteUrl = new URL("/", site).href;
+// Cache-bust for Telegram/other platforms that cache OG images aggressively
+const ogImage = `${new URL(profileOgImage.src, site).href}?v=2`;
+const ogImageWidth = String(profileOgImage.width);
+const ogImageHeight = String(profileOgImage.height);
+
+const jobs = [
+  {
+    title: "Chief Technology Officer & Co-Founder",
+    date: "Apr 2025 – Present",
+    company: ["Anato", "Dublin, Ireland", "Part-time since Jan 2026"],
+    description: "Food-tech startup delivering next-generation crumb structure analysis for the baking industry.",
+    achievements: [
+      {
+        label: "Product Delivery Leadership:",
+        body: "Led cross-functional delivery across mobile, backend, machine learning and web, coordinating the multi-platform product launch and taking the iOS app from legacy distribution to its first public App Store release.",
+      },
+      {
+        label: "Product Strategy & Roadmapping:",
+        body: "Shaped the product vision with the CEO and translated it into a grounded 6-month execution plan and 24-month roadmap, setting engineering priorities to deliver both.",
+      },
+      {
+        label: "Delivery Processes:",
+        body: "Introduced structured development workflows to improve task visibility and clarify ownership.",
+      },
+      {
+        label: "Platform & Cost Optimisation:",
+        body: "Directed the re-architecture of a restrictive legacy codebase into a scalable platform, cutting projected scaling costs by approximately 60%. Initiated and led a lift-and-shift migration from Azure to AWS to leverage startup credits, then right-sized compute instances, reducing monthly infrastructure costs by approximately 30%.",
+      },
+      {
+        label: "Product Discovery & Customer Enablement:",
+        body: "Recognised the need for a central web platform and led its design and development, supporting customer analytics, internal operations and product research. Extended product capabilities to accommodate the first paying customer's established workflows.",
+      },
+      {
+        label: "AI Tooling & Adoption:",
+        body: "Evaluated and recommended AI engineering tools, managed access, subscriptions and budget, and encouraged practical adoption across the engineering team.",
+      },
+      {
+        label: "Funding & Industry Engagement:",
+        body: "Wrote the technical sections of progress reports that secured a second €50k tranche of Enterprise Ireland funding; prepared the 2025 National Startup Awards application and pitched alongside the CEO, reaching the finals; and led Anato's presence at Web Summit 2025.",
+      },
+    ],
+  },
+  {
+    title: "Full-Stack Engineer",
+    date: "Apr 2026 – Present",
+    company: ["Onengine", "Remote (Ireland)"],
+    description: "US-based B2B platform connecting businesses with facilities-services contractors.",
+    achievements: [
+      {
+        label: "End-to-End Delivery:",
+        body: "Deliver product features and proactively identify, investigate and resolve defects, taking improvements from discovery through to production release.",
+      },
+      {
+        label: "Engineering Collaboration:",
+        body: "Write and assign development tickets, review pull requests and help colleagues validate changes.",
+      },
+      {
+        label: "Agentic QA:",
+        body: "Designed a reusable AI agent workflow combining requirements analysis, code review, browser-based functional testing (via MCP) and defect tracking, turning outstanding issues into documented, actionable follow-up tickets. Extended the workflow to cover iOS app builds, using network proxies and automated testing.",
+      },
+      {
+        label: "AI-Assisted Development:",
+        body: "Use AI daily for coding, investigation and automation, with custom instructions and reusable context tailored to the codebase.",
+      },
+    ],
+  },
+  {
+    title: "Senior Product Engineer",
+    date: "Jul 2023 – Dec 2024",
+    company: ["Kubicle", "Dublin, Ireland"],
+    description: "B2B e-learning platform.",
+    achievements: [
+      {
+        label: "Feature Ownership:",
+        body: "Took end-to-end ownership of customer-facing features from requirements through to release, and partnered with the Head of Product on an admin UX/UI overhaul, driving the move to React and MUI.",
+      },
+      {
+        label: "Revenue-Critical Delivery:",
+        body: "Implemented a new licensing tier and administrative dashboard, safely modifying business-critical billing logic.",
+      },
+      {
+        label: "Agile Planning:",
+        body: "Took part in story mapping and roadmap planning, aligning engineering work with business goals.",
+      },
+      {
+        label: "Internal Tooling:",
+        body: "Led improvements to the management dashboard used by Sales and Customer Success teams, speeding up their day-to-day workflows.",
+      },
+      {
+        label: "Performance & Reporting:",
+        body: "Built data-intensive reporting features and optimised Rails API performance for scale.",
+      },
+    ],
+  },
+  {
+    title: "Senior Software Engineer & Project Lead",
+    date: "Nov 2019 – Dec 2022",
+    company: ["Bonkers.ie", "Dublin, Ireland"],
+    description: "Irish price comparison and switching site for energy, broadband, banking and insurance.",
+    achievements: [
+      {
+        label: "Partner Integration Delivery:",
+        body: "Led technical delivery of the company's first integration with Zurich Insurance, launching bonkers.ie's online car and home insurance services, and delivered every milestone on time against the partner's fixed deployment cycles.",
+      },
+      {
+        label: "Partner & Stakeholder Management:",
+        body: "Acted as the main technical point of contact for Zurich's API engineers, managing integration requirements, QA feedback and issue resolution, while aligning front-end and back-end work with partner requirements.",
+      },
+      {
+        label: "Release & Stabilisation:",
+        body: "Launched with no significant production bugs and led post-launch stabilisation, coordinating triage and fixes with the partner's engineering team.",
+      },
+      {
+        label: "Market-Driven Change:",
+        body: "Delivered support for newly launched smart (time-of-use) electricity tariffs, assessing the impact on existing tariff calculations and extending them without regressions to accurately calculate customer spend and savings.",
+      },
+      {
+        label: "Commercial Feature Development:",
+        body: "Designed and implemented a click-tracking and virtual budgeting system to accurately manage paid partner placement balances.",
+      },
+    ],
+  },
+  {
+    title: "Full-Stack Engineer & Team Lead",
+    date: "May 2017 – Sep 2019",
+    company: ["InStat Sport", "Remote"],
+    description: "Sports performance analysis company.",
+    achievements: [
+      {
+        label: "Rapid Progression:",
+        body: "Progressed from Junior Engineer to Team Lead within two years, leading technical hiring and setting coding standards for new Node.js and React projects.",
+      },
+      {
+        label: "Cross-Team Collaboration:",
+        body: "Worked with database and DevOps teams to optimise query efficiency and API reliability for high-load data services.",
+      },
+    ],
+  },
+];
+const skills = [
+  {
+    title: "STRATEGY & DELIVERY",
+    body: "Product Strategy, Roadmap Planning, Scope & Dependency Management, Agile Delivery, SDLC Optimisation, Release Management.",
+  },
+  {
+    title: "LEADERSHIP & BUSINESS",
+    body: "Stakeholder Management, Cross-Functional Leadership, Customer Engagement, Commercial Awareness, Infrastructure Cost Control, Technical Hiring & Mentorship.",
+  },
+  {
+    title: "TECHNICAL EXPERTISE",
+    body: "System Architecture, API Integrations, Ruby on Rails, React, Vue.js, Next.js, Node.js, TypeScript, SQL, AWS, Azure.",
+  },
+  {
+    title: "AI & AUTOMATION",
+    body: "Agentic Workflows, AI-Assisted Engineering, QA Automation, MCP, AI Tooling & Adoption.",
+  },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  noindex
+  navLinks={[
+    {
+      href: "/cv-delivery.pdf",
+      label: "Download PDF",
+      ariaLabel: "Download PDF of the Technical Delivery CV",
+      download: "Anastasia-Tulentseva-Technical-Delivery-CV.pdf",
+    },
+  ]}
+>
+  <Fragment slot="head">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={ogImageWidth} />
+    <meta property="og:image:height" content={ogImageHeight} />
+    <meta property="og:image:alt" content="Professional headshot of Anastasia Tulentseva" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, site).href} />
+    <meta property="og:site_name" content="Anastasia Tulentseva" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Professional headshot of Anastasia Tulentseva" />
+  </Fragment>
+  <main class="w-full min-w-0 overflow-x-hidden print:overflow-x-visible">
+    <style is:global>
+      .cv-header {
+        background-color: var(--color-charcoal, #1f2937);
+      }
+      @media print {
+        @page {
+          size: A4;
+          margin: 8mm 0;
+        }
+        @page :first {
+          margin-top: 0;
+        }
+        html,
+        body {
+          overflow: visible !important;
+        }
+        body {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          background-color: white !important;
+          display: block;
+          min-height: 0;
+          margin: 0;
+          padding: 0;
+        }
+        .print-content {
+          padding-left: 0.8cm !important;
+          padding-right: 0.8cm !important;
+        }
+        .print-edu-skills-grid {
+          display: grid !important;
+          grid-template-columns: 1fr 2fr !important;
+          gap: 1rem !important;
+        }
+        .print-education-col {
+          grid-column: 1 !important;
+        }
+        .print-skills-col {
+          grid-column: 2 !important;
+        }
+        .cv-header {
+          background-color: var(--color-charcoal, #1f2937) !important;
+        }
+      }
+    </style>
+
+    <div
+      class="py-8 px-4 sm:px-8 print:py-0 print:px-0 min-h-screen print:min-h-0"
+    >
+      <div
+        class="max-w-4xl mx-auto bg-white shadow-xl print:shadow-none print:w-full print:max-w-none rounded-none sm:rounded-lg print:rounded-none overflow-hidden print:overflow-visible text-charcoal font-sans leading-relaxed relative"
+      >
+        <header
+          class="cv-header text-white p-8 sm:p-10 print:text-white print:p-6 print:pb-4 relative"
+        >
+          <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 print:flex-row print:justify-between print:items-center print:gap-2"
+          >
+            <div>
+              <h1
+                class="font-serif text-3xl sm:text-4xl font-bold tracking-tight mb-2 print:text-3xl print:mb-0"
+              >
+                {name}
+              </h1>
+              <h2
+                class="text-xl text-gray-400 font-medium print:text-lg"
+              >
+                {headline}
+              </h2>
+            </div>
+            <div
+              class="text-sm space-y-2 text-gray-400 min-w-fit print:text-xs print:space-y-1 print:text-right"
+            >
+              <div class="flex items-center gap-2 print:justify-end">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="print:w-3 print:h-3"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Dublin, Ireland</span>
+              </div>
+              <div class="flex items-center gap-2 print:justify-end">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="print:w-3 print:h-3"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <a
+                  href="mailto:anastasia@tulentsev.com"
+                  class="hover:text-white transition-colors"
+                  >anastasia@tulentsev.com</a
+                >
+              </div>
+              <div class="flex items-center gap-2 print:justify-end">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="print:w-3 print:h-3"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+                <a
+                  href="tel:+353894853415"
+                  class="hover:text-white transition-colors">+353 89 485 3415</a
+                >
+              </div>
+              <div
+                class="flex gap-4 pt-1 print:pt-0 print:justify-end print:gap-2"
+              >
+                <a
+                  href={websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-1 hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="print:w-3 print:h-3"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                    ></path>
+                  </svg>
+                  <span
+                    class="underline decoration-gray-500 hover:decoration-white"
+                    >Website</span
+                  >
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/atulentseva/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-1 hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="print:w-3 print:h-3"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                  <span
+                    class="underline decoration-gray-500 hover:decoration-white"
+                    >LinkedIn</span
+                  >
+                </a>
+                <a
+                  href="https://github.com/anastasiiatulentseva"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-1 hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="print:w-3 print:h-3"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                  <span
+                    class="underline decoration-gray-500 hover:decoration-white"
+                    >GitHub</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div
+          class="print-content p-8 sm:p-10 space-y-8 print:pt-6 print:pb-0 print:space-y-4"
+        >
+          <section>
+            <h3
+              class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-4 print:mb-2 print:text-base print:pb-1"
+            >
+              PROFILE
+            </h3>
+            <div class="space-y-2 text-sm text-gray-700 print:leading-tight">
+              <p>17+ years in technology, combining software engineering expertise with technical leadership and product delivery.</p>
+              <p>I translate high-level requirements into practical engineering plans, aligning business goals with technical capacity. My approach focuses on structured, low-friction workflows, clear communication and lean development. I take ownership of technical delivery, from planning and coordination through to production release, ensuring technical decisions serve both customers and the business.</p>
+            </div>
+            <div class="text-xs text-gray-500 mt-2">
+              <strong>Core Competencies:</strong> Technical Delivery, Cross-Functional Leadership, Product Strategy, Stakeholder Communication, Engineering Planning, Commercial Awareness.
+            </div>
+          </section>
+
+          <section>
+            <h3
+              class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-6 print:mb-2 print:text-base print:pb-1"
+            >
+              EXPERIENCE
+            </h3>
+            {jobs.map(({ title, date, company, description, achievements }, index) => (
+              <div class:list={[index === 0 ? "mb-10" : "mb-8", "break-inside-avoid print:mb-3"]}>
+                <div class="flex max-sm:flex-wrap justify-between items-baseline gap-x-3 mb-1">
+                  <h4
+                    class:list={[
+                      "font-serif font-bold text-charcoal",
+                      index === 0 ? "text-xl print:text-lg" : "text-lg print:text-base",
+                    ]}
+                  >
+                    {title}
+                  </h4>
+                  <span class="text-sm font-medium text-gray-500 whitespace-nowrap">{date}</span>
+                </div>
+                <div class:list={["flex flex-col text-sm", index === 0 ? "gap-0.5 mb-2" : "mb-1"]}>
+                  <div class="flex flex-wrap items-baseline gap-x-1 font-semibold text-gray-700">
+                    {company[0]}
+                    {company.slice(1).map((detail) => (
+                      <span class="inline-flex items-baseline gap-1">
+                        <span class="text-gray-400">|</span> {detail}
+                      </span>
+                    ))}
+                  </div>
+                  <p class="text-xs text-gray-500">{description}</p>
+                </div>
+                <ul class="list-disc pl-5 space-y-0.5 text-sm text-gray-700 print:space-y-0 print:leading-tight">
+                  {achievements.map(({ label, body }) => (
+                    <li><strong class="font-semibold">{label}</strong> {body}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <p class="text-sm text-gray-700 print:leading-snug">
+              <strong class="font-semibold">Earlier Experience:</strong> Five years of university-level IT teaching and dissertation supervision, followed by software QA and freelance web development.
+            </p>
+          </section>
+
+          <div
+            class="print-edu-skills-grid grid grid-cols-1 md:grid-cols-3 gap-8 break-inside-avoid print:gap-4 print:mt-2"
+          >
+            <div class="print-education-col md:col-span-1 space-y-8 print:space-y-4">
+              <section>
+                <h3
+                  class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-4 print:mb-2 print:text-base print:pb-1"
+                >
+                  EDUCATION
+                </h3>
+                <ul class="space-y-2 print:space-y-1">
+                  <li class="text-sm font-medium text-gray-700">
+                    Information Systems and Technologies
+                    <span class="block text-xs font-normal text-gray-500">
+                      Master's Degree
+                    </span>
+                  </li>
+                  <li class="text-sm font-medium text-gray-700">
+                    Computer Science
+                    <span class="block text-xs font-normal text-gray-500">
+                      Bachelor's Degree
+                    </span>
+                  </li>
+                </ul>
+                <p class="mt-3 text-xs text-gray-500 print:mt-2">
+                  Berdyansk University of Management and Business, Ukraine
+                </p>
+              </section>
+              <section>
+                <h3
+                  class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-4 print:mb-2 print:text-base print:pb-1"
+                >
+                  CITIZENSHIP
+                </h3>
+                <div class="text-sm text-gray-700 font-medium">Irish Citizen</div>
+                <div class="text-xs text-gray-500 mt-1">EU Passport &amp; UK Right to Work</div>
+              </section>
+            </div>
+
+            <section class="print-skills-col md:col-span-2">
+              <h3
+                class="font-serif text-lg font-bold uppercase tracking-wider text-charcoal border-b-2 border-gray-200 pb-2 mb-4 print:mb-2 print:text-base print:pb-1"
+              >
+                SKILLS
+              </h3>
+              <div class="space-y-3 print:space-y-1.5">
+                {skills.map(({ title, body }) => (
+                  <div>
+                    <h4 class="text-sm font-bold text-charcoal mb-0.5">{title}</h4>
+                    <p class="text-xs text-gray-700 leading-snug">{body}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
